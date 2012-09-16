@@ -1,0 +1,83 @@
+@Spec {
+	metamodel "1.0" {
+		nsUri: "http://tdt4250/1.0"
+	}
+}
+   
+tdt4250 {
+
+Root {
+	containsA: Course "TDT4250", Course "IT2603"
+	containsB: Student "Simon", Student "Noelia", Student "Alberto"
+}
+
+Student "Simon" {
+ID : 1
+name : "Simon"
+submit : Answer "TDT4250ans2"
+attends : Course "TDT4250", Course "TDT4250"
+}
+
+Student "Noelia" {
+ID : 2
+name : "Noelia"
+submit : Answer "TDT4250ans1"
+attends : Course "TDT4250"
+}
+
+Student "Alberto" {
+ID : 2
+name : "Alberto"
+submit : Answer "IT2603ans1"
+attends : Course "IT2603"
+}
+
+Teacher "Hong" {
+ID : 3
+name : "Hong Guo"
+coordinates : Course "TDT4250"
+}
+	
+Answer "TDT4250ans1"{
+		content: "Finished"
+}
+
+Answer "TDT4250ans2"{
+		content: "Finished 2"
+}
+
+Answer "IT2603ans1"{
+		content: "Finished 3"
+}
+
+Course "TDT4250" {
+ID : 1
+credit : 8
+name : "TDT4250"
+isAttended: Student "Noelia", Student "Simon"
+isCoordinated : Teacher "Hong"
+has: Assigment "TDT4250as1" {
+		ID : 1
+		name : "Exercise 1: Creating Models and Data in Eclipse"
+		content : "Achieve practical experience with modeling, model validation and data management using Eclipse tools."
+		mandatory : true
+		isSolved :  Answer "TDT4250ans1", Answer "TDT4250ans2"
+	}
+}
+
+Course "IT2603" {
+ID : 1
+credit : 8
+name : "IT2603"
+isAttended: Student "Alberto", Student "Simon"
+isCoordinated : Teacher "Hong"
+has: Assigment "IT2603as1" {
+		ID : 1
+		name : "Exercise 1: SW ENG"
+		content : "blah, blah, blah.."
+		mandatory : true
+		isSolved :  Answer "IT2603ans1"
+	}
+}
+	
+}

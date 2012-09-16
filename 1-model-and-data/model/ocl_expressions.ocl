@@ -1,0 +1,5 @@
+// run this expression on node of "course TDT4250" 
+// this expression checks that all the assignments' answers are submitted by students enrolled in this course
+// i.e. should return false when there is an answer submitted by student who is not enrolled in this course
+
+self.has->forAll(asg | asg.isSolved->forAll(sol | self.isAttended->exists(stud | stud.submit->exists(ans | ans = sol))))
