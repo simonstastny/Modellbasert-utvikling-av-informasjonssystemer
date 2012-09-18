@@ -1,0 +1,22 @@
+Title: "QA example 1"
+
+/*"Are you ready"? yes!
+
+Section "Math"
+{
+	"What is 2 + 2"? 4!
+
+	"What is 2 - 2"? 0!
+	Candidates: 0, 1, 2
+	
+	"What is the square root of 2"? ="Math.sqrt(2)" +- 0.001!
+}
+
+Section "Geography"
+{
+	"Where is Norway"? #3!
+	Candidates: "In the middle of somewhere", "In the middle of anywhere", "In the middle of nowhere"
+
+	"What is the capitol of Norway"? "Oslo"!
+}
+*/
