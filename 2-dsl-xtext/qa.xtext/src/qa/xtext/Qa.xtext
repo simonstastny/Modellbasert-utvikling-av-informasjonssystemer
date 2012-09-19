@@ -1,20 +1,53 @@
-grammar qa.xtext.Qa with org.eclipse.xtext.common.Terminals 
-
+grammar qa.xtext.Qa with org.eclipse.xtext.common.Terminals
 import "platform:/resource/qa/model/qa.ecore" 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 QATest:
-'Title: ' title=EString
-(options = QAContainerOptions)?
-//(parts += QAPart)*
+	'Title: ' title=EString
+	(options = QAContainerOptions)?
+	(parts += QAPart)*
 ;
 
 QAContainerOptions: 
 	'try' maxTries = INT 'times' (revealAnswer ?= 'reveal' 'correct' 'answer')?
 ;
 
-//QAPart: Question | QASection;
+QAPart: Question | QASection;
 
+Question:
+	text=EString '?' correct=Answer '!'
+	('Candidates: ' candidates += Answer (', ' candidates += Answer)*)?
+;
+
+QASection:
+	'Section ' name=EString '{'
+	(options = QAContainerOptions)?
+	(questions += Question)*
+	'}'
+;
+
+Answer: (ExpressionAnswer | OptionAnswer | NumberAnswer  | TextAnswer | YesNoAnswer);
+
+
+ExpressionAnswer:
+	'=' expression=EString ('+-' epsilon=EDouble)?
+;
+
+OptionAnswer:
+	'#' optionNumber=EInt
+;
+
+NumberAnswer:
+	number=EDouble ("+-" epsilon=EDouble)?
+;
+
+TextAnswer:
+	text=EString
+;
+
+YesNoAnswer:
+	{YesNoAnswer} (yes ?= 'yes' | 'no')
+;
 
 
 EString returns ecore::EString: STRING;

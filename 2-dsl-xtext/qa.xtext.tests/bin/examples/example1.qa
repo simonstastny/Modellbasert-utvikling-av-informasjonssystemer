@@ -1,6 +1,6 @@
 Title: "QA example 1"
 
-/*"Are you ready"? yes!
+"Are you ready"? yes!
 
 Section "Math"
 {
@@ -19,4 +19,4 @@ Section "Geography"
 
 	"What is the capitol of Norway"? "Oslo"!
 }
-*/
+

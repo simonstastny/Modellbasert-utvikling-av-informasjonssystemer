@@ -9,13 +9,13 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Question" eSuperTypes="#//QAPart">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="correct" lowerBound="1"
         eType="#//Answer" containment="true" eOpposite="#//Answer/question"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="candidates" upperBound="-1"
         eType="#//Answer" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nextRules" upperBound="-1"
         eType="#//NextRule" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Answer" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="question" eType="#//Question"

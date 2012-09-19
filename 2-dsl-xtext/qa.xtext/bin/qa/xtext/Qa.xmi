@@ -7,6 +7,15 @@
     <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="ecore">
       <ePackage href="http://www.eclipse.org/emf/2002/Ecore#/"/>
     </metamodelDeclarations>
+    <rules xsi:type="xtext:ParserRule" name="QAContainer">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="platform:/resource/qa/model/qa.ecore#//QAContainer"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.1"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
+      </alternatives>
+    </rules>
     <rules xsi:type="xtext:ParserRule" name="QATest">
       <type metamodel="/0/@metamodelDeclarations.0">
         <classifier xsi:type="ecore:EClass" href="platform:/resource/qa/model/qa.ecore#//QATest"/>
@@ -14,10 +23,13 @@
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Keyword" value="Title: "/>
         <elements xsi:type="xtext:Assignment" feature="title" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
         </elements>
         <elements xsi:type="xtext:Assignment" cardinality="?" feature="options" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.1"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="*" feature="parts" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
         </elements>
       </alternatives>
     </rules>
@@ -26,6 +38,10 @@
         <classifier xsi:type="ecore:EClass" href="platform:/resource/qa/model/qa.ecore#//QAContainerOptions"/>
       </type>
       <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="RevealAnswer: "/>
+        <elements xsi:type="xtext:Assignment" feature="revealAnswer" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
+        </elements>
         <elements xsi:type="xtext:Keyword" value="try"/>
         <elements xsi:type="xtext:Assignment" feature="maxTries" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
@@ -37,6 +53,152 @@
           </elements>
           <elements xsi:type="xtext:Keyword" value="correct"/>
           <elements xsi:type="xtext:Keyword" value="answer"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="QAPart">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="platform:/resource/qa/model/qa.ecore#//QAPart"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="QASection">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="platform:/resource/qa/model/qa.ecore#//QASection"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="Title: "/>
+        <elements xsi:type="xtext:Assignment" feature="title" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="Name: "/>
+        <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="options" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="*" feature="questions" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="NextRule">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="platform:/resource/qa/model/qa.ecore#//NextRule"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="Tries: "/>
+        <elements xsi:type="xtext:Assignment" feature="tries" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="TextAnswer">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="platform:/resource/qa/model/qa.ecore#//TextAnswer"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="Text: "/>
+        <elements xsi:type="xtext:Assignment" feature="text" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ExpressionAnswer">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="platform:/resource/qa/model/qa.ecore#//ExpressionAnswer"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="Epsilon: "/>
+        <elements xsi:type="xtext:Assignment" feature="epsilon" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="Number: "/>
+        <elements xsi:type="xtext:Assignment" feature="number" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="Expression: "/>
+        <elements xsi:type="xtext:Assignment" feature="expression" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="NumberAnswer">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="platform:/resource/qa/model/qa.ecore#//NumberAnswer"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Keyword" value="Epsilon: "/>
+          <elements xsi:type="xtext:Assignment" feature="epsilon" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="Number: "/>
+          <elements xsi:type="xtext:Assignment" feature="number" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="YesNoAnswer">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="platform:/resource/qa/model/qa.ecore#//YesNoAnswer"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="Yes: "/>
+        <elements xsi:type="xtext:Assignment" feature="yes" operator="?=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="OptionAnswer">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="platform:/resource/qa/model/qa.ecore#//OptionAnswer"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="OptionNumber: "/>
+        <elements xsi:type="xtext:Assignment" feature="optionNumber" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Answer">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="platform:/resource/qa/model/qa.ecore#//Answer"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Question">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="platform:/resource/qa/model/qa.ecore#//Question"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="Text: "/>
+        <elements xsi:type="xtext:Assignment" feature="text" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="Name: "/>
+        <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="*" feature="nextRules" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="correct" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="*" feature="candidates" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
         </elements>
       </alternatives>
     </rules>
@@ -74,6 +236,18 @@
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Keyword" cardinality="?" value="-"/>
         <elements xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="EBoolean">
+      <type metamodel="/0/@metamodelDeclarations.1">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        <elements xsi:type="xtext:Alternatives">
+          <elements xsi:type="xtext:Keyword" value="YES"/>
+          <elements xsi:type="xtext:Keyword" value="NO"/>
+        </elements>
       </alternatives>
     </rules>
   </xtext:Grammar>
