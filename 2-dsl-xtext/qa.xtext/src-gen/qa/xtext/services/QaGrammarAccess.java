@@ -17,26 +17,6 @@ import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
 public class QaGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
-	public class QAContainerElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "QAContainer");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cQATestParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cQASectionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//QAContainer:
-		//	QATest | QASection;
-		public ParserRule getRule() { return rule; }
-
-		//QATest | QASection
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//QATest
-		public RuleCall getQATestParserRuleCall_0() { return cQATestParserRuleCall_0; }
-
-		//QASection
-		public RuleCall getQASectionParserRuleCall_1() { return cQASectionParserRuleCall_1; }
-	}
-
 	public class QATestElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "QATest");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -80,61 +60,49 @@ public class QaGrammarAccess extends AbstractGrammarElementFinder {
 	public class QAContainerOptionsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "QAContainerOptions");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cRevealAnswerKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cRevealAnswerAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cRevealAnswerEBooleanParserRuleCall_1_0 = (RuleCall)cRevealAnswerAssignment_1.eContents().get(0);
-		private final Keyword cTryKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cMaxTriesAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cMaxTriesINTTerminalRuleCall_3_0 = (RuleCall)cMaxTriesAssignment_3.eContents().get(0);
-		private final Keyword cTimesKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Assignment cRevealAnswerAssignment_5_0 = (Assignment)cGroup_5.eContents().get(0);
-		private final Keyword cRevealAnswerRevealKeyword_5_0_0 = (Keyword)cRevealAnswerAssignment_5_0.eContents().get(0);
-		private final Keyword cCorrectKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
-		private final Keyword cAnswerKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
+		private final Keyword cTryKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cMaxTriesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cMaxTriesINTTerminalRuleCall_1_0 = (RuleCall)cMaxTriesAssignment_1.eContents().get(0);
+		private final Keyword cTimesKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cRevealAnswerAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final Keyword cRevealAnswerRevealKeyword_3_0_0 = (Keyword)cRevealAnswerAssignment_3_0.eContents().get(0);
+		private final Keyword cCorrectKeyword_3_1 = (Keyword)cGroup_3.eContents().get(1);
+		private final Keyword cAnswerKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
 		
 		//QAContainerOptions:
-		//	"RevealAnswer: " revealAnswer=EBoolean "try" maxTries=INT "times" (revealAnswer?="reveal" "correct" "answer")?;
+		//	"try" maxTries=INT "times" (revealAnswer?="reveal" "correct" "answer")?;
 		public ParserRule getRule() { return rule; }
 
-		//"RevealAnswer: " revealAnswer=EBoolean "try" maxTries=INT "times" (revealAnswer?="reveal" "correct" "answer")?
+		//"try" maxTries=INT "times" (revealAnswer?="reveal" "correct" "answer")?
 		public Group getGroup() { return cGroup; }
 
-		//"RevealAnswer: "
-		public Keyword getRevealAnswerKeyword_0() { return cRevealAnswerKeyword_0; }
-
-		//revealAnswer=EBoolean
-		public Assignment getRevealAnswerAssignment_1() { return cRevealAnswerAssignment_1; }
-
-		//EBoolean
-		public RuleCall getRevealAnswerEBooleanParserRuleCall_1_0() { return cRevealAnswerEBooleanParserRuleCall_1_0; }
-
 		//"try"
-		public Keyword getTryKeyword_2() { return cTryKeyword_2; }
+		public Keyword getTryKeyword_0() { return cTryKeyword_0; }
 
 		//maxTries=INT
-		public Assignment getMaxTriesAssignment_3() { return cMaxTriesAssignment_3; }
+		public Assignment getMaxTriesAssignment_1() { return cMaxTriesAssignment_1; }
 
 		//INT
-		public RuleCall getMaxTriesINTTerminalRuleCall_3_0() { return cMaxTriesINTTerminalRuleCall_3_0; }
+		public RuleCall getMaxTriesINTTerminalRuleCall_1_0() { return cMaxTriesINTTerminalRuleCall_1_0; }
 
 		//"times"
-		public Keyword getTimesKeyword_4() { return cTimesKeyword_4; }
+		public Keyword getTimesKeyword_2() { return cTimesKeyword_2; }
 
 		//(revealAnswer?="reveal" "correct" "answer")?
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_3() { return cGroup_3; }
 
 		//revealAnswer?="reveal"
-		public Assignment getRevealAnswerAssignment_5_0() { return cRevealAnswerAssignment_5_0; }
+		public Assignment getRevealAnswerAssignment_3_0() { return cRevealAnswerAssignment_3_0; }
 
 		//"reveal"
-		public Keyword getRevealAnswerRevealKeyword_5_0_0() { return cRevealAnswerRevealKeyword_5_0_0; }
+		public Keyword getRevealAnswerRevealKeyword_3_0_0() { return cRevealAnswerRevealKeyword_3_0_0; }
 
 		//"correct"
-		public Keyword getCorrectKeyword_5_1() { return cCorrectKeyword_5_1; }
+		public Keyword getCorrectKeyword_3_1() { return cCorrectKeyword_3_1; }
 
 		//"answer"
-		public Keyword getAnswerKeyword_5_2() { return cAnswerKeyword_5_2; }
+		public Keyword getAnswerKeyword_3_2() { return cAnswerKeyword_3_2; }
 	}
 
 	public class QAPartElements extends AbstractParserRuleElementFinder {
@@ -157,238 +125,206 @@ public class QaGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getQASectionParserRuleCall_1() { return cQASectionParserRuleCall_1; }
 	}
 
+	public class QuestionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Question");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cTextAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cTextEStringParserRuleCall_0_0 = (RuleCall)cTextAssignment_0.eContents().get(0);
+		private final Keyword cQuestionMarkKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cCorrectAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cCorrectAnswerParserRuleCall_2_0 = (RuleCall)cCorrectAssignment_2.eContents().get(0);
+		private final Keyword cExclamationMarkKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cCandidatesKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cCandidatesAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cCandidatesAnswerParserRuleCall_4_1_0 = (RuleCall)cCandidatesAssignment_4_1.eContents().get(0);
+		private final Group cGroup_4_2 = (Group)cGroup_4.eContents().get(2);
+		private final Keyword cCommaSpaceKeyword_4_2_0 = (Keyword)cGroup_4_2.eContents().get(0);
+		private final Assignment cCandidatesAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
+		private final RuleCall cCandidatesAnswerParserRuleCall_4_2_1_0 = (RuleCall)cCandidatesAssignment_4_2_1.eContents().get(0);
+		
+		//Question:
+		//	text=EString "?" correct=Answer "!" ("Candidates: " candidates+=Answer (", " candidates+=Answer)*)?;
+		public ParserRule getRule() { return rule; }
+
+		//text=EString "?" correct=Answer "!" ("Candidates: " candidates+=Answer (", " candidates+=Answer)*)?
+		public Group getGroup() { return cGroup; }
+
+		//text=EString
+		public Assignment getTextAssignment_0() { return cTextAssignment_0; }
+
+		//EString
+		public RuleCall getTextEStringParserRuleCall_0_0() { return cTextEStringParserRuleCall_0_0; }
+
+		//"?"
+		public Keyword getQuestionMarkKeyword_1() { return cQuestionMarkKeyword_1; }
+
+		//correct=Answer
+		public Assignment getCorrectAssignment_2() { return cCorrectAssignment_2; }
+
+		//Answer
+		public RuleCall getCorrectAnswerParserRuleCall_2_0() { return cCorrectAnswerParserRuleCall_2_0; }
+
+		//"!"
+		public Keyword getExclamationMarkKeyword_3() { return cExclamationMarkKeyword_3; }
+
+		//("Candidates: " candidates+=Answer (", " candidates+=Answer)*)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"Candidates: "
+		public Keyword getCandidatesKeyword_4_0() { return cCandidatesKeyword_4_0; }
+
+		//candidates+=Answer
+		public Assignment getCandidatesAssignment_4_1() { return cCandidatesAssignment_4_1; }
+
+		//Answer
+		public RuleCall getCandidatesAnswerParserRuleCall_4_1_0() { return cCandidatesAnswerParserRuleCall_4_1_0; }
+
+		//(", " candidates+=Answer)*
+		public Group getGroup_4_2() { return cGroup_4_2; }
+
+		//", "
+		public Keyword getCommaSpaceKeyword_4_2_0() { return cCommaSpaceKeyword_4_2_0; }
+
+		//candidates+=Answer
+		public Assignment getCandidatesAssignment_4_2_1() { return cCandidatesAssignment_4_2_1; }
+
+		//Answer
+		public RuleCall getCandidatesAnswerParserRuleCall_4_2_1_0() { return cCandidatesAnswerParserRuleCall_4_2_1_0; }
+	}
+
 	public class QASectionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "QASection");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cTitleKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cTitleAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTitleEStringParserRuleCall_1_0 = (RuleCall)cTitleAssignment_1.eContents().get(0);
-		private final Keyword cNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Assignment cOptionsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cOptionsQAContainerOptionsParserRuleCall_4_0 = (RuleCall)cOptionsAssignment_4.eContents().get(0);
-		private final Assignment cQuestionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cQuestionsQuestionParserRuleCall_5_0 = (RuleCall)cQuestionsAssignment_5.eContents().get(0);
+		private final Keyword cSectionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cOptionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cOptionsQAContainerOptionsParserRuleCall_3_0 = (RuleCall)cOptionsAssignment_3.eContents().get(0);
+		private final Assignment cQuestionsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cQuestionsQuestionParserRuleCall_4_0 = (RuleCall)cQuestionsAssignment_4.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//QASection:
-		//	"Title: " title=EString "Name: " name=EString options=QAContainerOptions? questions+=Question*;
+		//	"Section " name=EString "{" options=QAContainerOptions? questions+=Question* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"Title: " title=EString "Name: " name=EString options=QAContainerOptions? questions+=Question*
+		//"Section " name=EString "{" options=QAContainerOptions? questions+=Question* "}"
 		public Group getGroup() { return cGroup; }
 
-		//"Title: "
-		public Keyword getTitleKeyword_0() { return cTitleKeyword_0; }
-
-		//title=EString
-		public Assignment getTitleAssignment_1() { return cTitleAssignment_1; }
-
-		//EString
-		public RuleCall getTitleEStringParserRuleCall_1_0() { return cTitleEStringParserRuleCall_1_0; }
-
-		//"Name: "
-		public Keyword getNameKeyword_2() { return cNameKeyword_2; }
+		//"Section "
+		public Keyword getSectionKeyword_0() { return cSectionKeyword_0; }
 
 		//name=EString
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//EString
-		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
+		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
 		//options=QAContainerOptions?
-		public Assignment getOptionsAssignment_4() { return cOptionsAssignment_4; }
+		public Assignment getOptionsAssignment_3() { return cOptionsAssignment_3; }
 
 		//QAContainerOptions
-		public RuleCall getOptionsQAContainerOptionsParserRuleCall_4_0() { return cOptionsQAContainerOptionsParserRuleCall_4_0; }
+		public RuleCall getOptionsQAContainerOptionsParserRuleCall_3_0() { return cOptionsQAContainerOptionsParserRuleCall_3_0; }
 
 		//questions+=Question*
-		public Assignment getQuestionsAssignment_5() { return cQuestionsAssignment_5; }
+		public Assignment getQuestionsAssignment_4() { return cQuestionsAssignment_4; }
 
 		//Question
-		public RuleCall getQuestionsQuestionParserRuleCall_5_0() { return cQuestionsQuestionParserRuleCall_5_0; }
+		public RuleCall getQuestionsQuestionParserRuleCall_4_0() { return cQuestionsQuestionParserRuleCall_4_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
-	public class NextRuleElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "NextRule");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cTriesKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cTriesAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTriesEIntParserRuleCall_1_0 = (RuleCall)cTriesAssignment_1.eContents().get(0);
+	public class AnswerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Answer");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cOptionAnswerParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cNumberAnswerParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cTextAnswerParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cYesNoAnswerParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
-		//NextRule:
-		//	"Tries: " tries=EInt;
+		//Answer:
+		//	OptionAnswer | NumberAnswer | TextAnswer | YesNoAnswer;
 		public ParserRule getRule() { return rule; }
 
-		//"Tries: " tries=EInt
-		public Group getGroup() { return cGroup; }
+		//OptionAnswer | NumberAnswer | TextAnswer | YesNoAnswer
+		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//"Tries: "
-		public Keyword getTriesKeyword_0() { return cTriesKeyword_0; }
+		//OptionAnswer
+		public RuleCall getOptionAnswerParserRuleCall_0() { return cOptionAnswerParserRuleCall_0; }
 
-		//tries=EInt
-		public Assignment getTriesAssignment_1() { return cTriesAssignment_1; }
+		//NumberAnswer
+		public RuleCall getNumberAnswerParserRuleCall_1() { return cNumberAnswerParserRuleCall_1; }
 
-		//EInt
-		public RuleCall getTriesEIntParserRuleCall_1_0() { return cTriesEIntParserRuleCall_1_0; }
-	}
+		//TextAnswer
+		public RuleCall getTextAnswerParserRuleCall_2() { return cTextAnswerParserRuleCall_2; }
 
-	public class TextAnswerElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TextAnswer");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cTextKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cTextAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTextEStringParserRuleCall_1_0 = (RuleCall)cTextAssignment_1.eContents().get(0);
-		
-		//TextAnswer:
-		//	"Text: " text=EString;
-		public ParserRule getRule() { return rule; }
-
-		//"Text: " text=EString
-		public Group getGroup() { return cGroup; }
-
-		//"Text: "
-		public Keyword getTextKeyword_0() { return cTextKeyword_0; }
-
-		//text=EString
-		public Assignment getTextAssignment_1() { return cTextAssignment_1; }
-
-		//EString
-		public RuleCall getTextEStringParserRuleCall_1_0() { return cTextEStringParserRuleCall_1_0; }
+		//YesNoAnswer
+		public RuleCall getYesNoAnswerParserRuleCall_3() { return cYesNoAnswerParserRuleCall_3; }
 	}
 
 	public class ExpressionAnswerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ExpressionAnswer");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cEpsilonKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cEpsilonAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cEpsilonEDoubleParserRuleCall_1_0 = (RuleCall)cEpsilonAssignment_1.eContents().get(0);
-		private final Keyword cNumberKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNumberAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNumberEDoubleParserRuleCall_3_0 = (RuleCall)cNumberAssignment_3.eContents().get(0);
-		private final Keyword cExpressionKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cExpressionAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cExpressionEStringParserRuleCall_5_0 = (RuleCall)cExpressionAssignment_5.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cExpressionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cExpressionEStringParserRuleCall_1_0 = (RuleCall)cExpressionAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cPlusSignHyphenMinusKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cEpsilonAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cEpsilonEDoubleParserRuleCall_2_1_0 = (RuleCall)cEpsilonAssignment_2_1.eContents().get(0);
 		
 		//ExpressionAnswer:
-		//	"Epsilon: " epsilon=EDouble "Number: " number=EDouble "Expression: " expression=EString;
+		//	"=" expression=EString ("+-" epsilon=EDouble)?;
 		public ParserRule getRule() { return rule; }
 
-		//"Epsilon: " epsilon=EDouble "Number: " number=EDouble "Expression: " expression=EString
+		//"=" expression=EString ("+-" epsilon=EDouble)?
 		public Group getGroup() { return cGroup; }
 
-		//"Epsilon: "
-		public Keyword getEpsilonKeyword_0() { return cEpsilonKeyword_0; }
-
-		//epsilon=EDouble
-		public Assignment getEpsilonAssignment_1() { return cEpsilonAssignment_1; }
-
-		//EDouble
-		public RuleCall getEpsilonEDoubleParserRuleCall_1_0() { return cEpsilonEDoubleParserRuleCall_1_0; }
-
-		//"Number: "
-		public Keyword getNumberKeyword_2() { return cNumberKeyword_2; }
-
-		//number=EDouble
-		public Assignment getNumberAssignment_3() { return cNumberAssignment_3; }
-
-		//EDouble
-		public RuleCall getNumberEDoubleParserRuleCall_3_0() { return cNumberEDoubleParserRuleCall_3_0; }
-
-		//"Expression: "
-		public Keyword getExpressionKeyword_4() { return cExpressionKeyword_4; }
+		//"="
+		public Keyword getEqualsSignKeyword_0() { return cEqualsSignKeyword_0; }
 
 		//expression=EString
-		public Assignment getExpressionAssignment_5() { return cExpressionAssignment_5; }
+		public Assignment getExpressionAssignment_1() { return cExpressionAssignment_1; }
 
 		//EString
-		public RuleCall getExpressionEStringParserRuleCall_5_0() { return cExpressionEStringParserRuleCall_5_0; }
-	}
+		public RuleCall getExpressionEStringParserRuleCall_1_0() { return cExpressionEStringParserRuleCall_1_0; }
 
-	public class NumberAnswerElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "NumberAnswer");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cEpsilonKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final Assignment cEpsilonAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
-		private final RuleCall cEpsilonEDoubleParserRuleCall_0_1_0 = (RuleCall)cEpsilonAssignment_0_1.eContents().get(0);
-		private final Keyword cNumberKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Assignment cNumberAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
-		private final RuleCall cNumberEDoubleParserRuleCall_0_3_0 = (RuleCall)cNumberAssignment_0_3.eContents().get(0);
-		private final RuleCall cExpressionAnswerParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//NumberAnswer:
-		//	"Epsilon: " epsilon=EDouble "Number: " number=EDouble | ExpressionAnswer;
-		public ParserRule getRule() { return rule; }
+		//("+-" epsilon=EDouble)?
+		public Group getGroup_2() { return cGroup_2; }
 
-		//"Epsilon: " epsilon=EDouble "Number: " number=EDouble | ExpressionAnswer
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//"Epsilon: " epsilon=EDouble "Number: " number=EDouble
-		public Group getGroup_0() { return cGroup_0; }
-
-		//"Epsilon: "
-		public Keyword getEpsilonKeyword_0_0() { return cEpsilonKeyword_0_0; }
+		//"+-"
+		public Keyword getPlusSignHyphenMinusKeyword_2_0() { return cPlusSignHyphenMinusKeyword_2_0; }
 
 		//epsilon=EDouble
-		public Assignment getEpsilonAssignment_0_1() { return cEpsilonAssignment_0_1; }
+		public Assignment getEpsilonAssignment_2_1() { return cEpsilonAssignment_2_1; }
 
 		//EDouble
-		public RuleCall getEpsilonEDoubleParserRuleCall_0_1_0() { return cEpsilonEDoubleParserRuleCall_0_1_0; }
-
-		//"Number: "
-		public Keyword getNumberKeyword_0_2() { return cNumberKeyword_0_2; }
-
-		//number=EDouble
-		public Assignment getNumberAssignment_0_3() { return cNumberAssignment_0_3; }
-
-		//EDouble
-		public RuleCall getNumberEDoubleParserRuleCall_0_3_0() { return cNumberEDoubleParserRuleCall_0_3_0; }
-
-		//ExpressionAnswer
-		public RuleCall getExpressionAnswerParserRuleCall_1() { return cExpressionAnswerParserRuleCall_1; }
-	}
-
-	public class YesNoAnswerElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "YesNoAnswer");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cYesKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cYesAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cYesEBooleanParserRuleCall_1_0 = (RuleCall)cYesAssignment_1.eContents().get(0);
-		
-		//YesNoAnswer:
-		//	"Yes: " yes?=EBoolean;
-		public ParserRule getRule() { return rule; }
-
-		//"Yes: " yes?=EBoolean
-		public Group getGroup() { return cGroup; }
-
-		//"Yes: "
-		public Keyword getYesKeyword_0() { return cYesKeyword_0; }
-
-		//yes?=EBoolean
-		public Assignment getYesAssignment_1() { return cYesAssignment_1; }
-
-		//EBoolean
-		public RuleCall getYesEBooleanParserRuleCall_1_0() { return cYesEBooleanParserRuleCall_1_0; }
+		public RuleCall getEpsilonEDoubleParserRuleCall_2_1_0() { return cEpsilonEDoubleParserRuleCall_2_1_0; }
 	}
 
 	public class OptionAnswerElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "OptionAnswer");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cOptionNumberKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cNumberSignKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cOptionNumberAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cOptionNumberEIntParserRuleCall_1_0 = (RuleCall)cOptionNumberAssignment_1.eContents().get(0);
 		
 		//OptionAnswer:
-		//	"OptionNumber: " optionNumber=EInt;
+		//	"#" optionNumber=EInt;
 		public ParserRule getRule() { return rule; }
 
-		//"OptionNumber: " optionNumber=EInt
+		//"#" optionNumber=EInt
 		public Group getGroup() { return cGroup; }
 
-		//"OptionNumber: "
-		public Keyword getOptionNumberKeyword_0() { return cOptionNumberKeyword_0; }
+		//"#"
+		public Keyword getNumberSignKeyword_0() { return cNumberSignKeyword_0; }
 
 		//optionNumber=EInt
 		public Assignment getOptionNumberAssignment_1() { return cOptionNumberAssignment_1; }
@@ -397,92 +333,96 @@ public class QaGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getOptionNumberEIntParserRuleCall_1_0() { return cOptionNumberEIntParserRuleCall_1_0; }
 	}
 
-	public class AnswerElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Answer");
+	public class NumberAnswerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "NumberAnswer");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cTextAnswerParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cNumberAnswerParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cYesNoAnswerParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cOptionAnswerParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Assignment cNumberAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final RuleCall cNumberEDoubleParserRuleCall_0_0_0 = (RuleCall)cNumberAssignment_0_0.eContents().get(0);
+		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
+		private final Keyword cPlusSignHyphenMinusKeyword_0_1_0 = (Keyword)cGroup_0_1.eContents().get(0);
+		private final Assignment cEpsilonAssignment_0_1_1 = (Assignment)cGroup_0_1.eContents().get(1);
+		private final RuleCall cEpsilonEDoubleParserRuleCall_0_1_1_0 = (RuleCall)cEpsilonAssignment_0_1_1.eContents().get(0);
+		private final RuleCall cExpressionAnswerParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//Answer:
-		//	TextAnswer | NumberAnswer | YesNoAnswer | OptionAnswer;
+		//NumberAnswer:
+		//	number=EDouble ("+-" epsilon=EDouble)? | ExpressionAnswer;
 		public ParserRule getRule() { return rule; }
 
-		//TextAnswer | NumberAnswer | YesNoAnswer | OptionAnswer
+		//number=EDouble ("+-" epsilon=EDouble)? | ExpressionAnswer
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//TextAnswer
-		public RuleCall getTextAnswerParserRuleCall_0() { return cTextAnswerParserRuleCall_0; }
+		//number=EDouble ("+-" epsilon=EDouble)?
+		public Group getGroup_0() { return cGroup_0; }
 
-		//NumberAnswer
-		public RuleCall getNumberAnswerParserRuleCall_1() { return cNumberAnswerParserRuleCall_1; }
+		//number=EDouble
+		public Assignment getNumberAssignment_0_0() { return cNumberAssignment_0_0; }
 
-		//YesNoAnswer
-		public RuleCall getYesNoAnswerParserRuleCall_2() { return cYesNoAnswerParserRuleCall_2; }
+		//EDouble
+		public RuleCall getNumberEDoubleParserRuleCall_0_0_0() { return cNumberEDoubleParserRuleCall_0_0_0; }
 
-		//OptionAnswer
-		public RuleCall getOptionAnswerParserRuleCall_3() { return cOptionAnswerParserRuleCall_3; }
+		//("+-" epsilon=EDouble)?
+		public Group getGroup_0_1() { return cGroup_0_1; }
+
+		//"+-"
+		public Keyword getPlusSignHyphenMinusKeyword_0_1_0() { return cPlusSignHyphenMinusKeyword_0_1_0; }
+
+		//epsilon=EDouble
+		public Assignment getEpsilonAssignment_0_1_1() { return cEpsilonAssignment_0_1_1; }
+
+		//EDouble
+		public RuleCall getEpsilonEDoubleParserRuleCall_0_1_1_0() { return cEpsilonEDoubleParserRuleCall_0_1_1_0; }
+
+		//ExpressionAnswer
+		public RuleCall getExpressionAnswerParserRuleCall_1() { return cExpressionAnswerParserRuleCall_1; }
 	}
 
-	public class QuestionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Question");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cTextKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cTextAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTextEStringParserRuleCall_1_0 = (RuleCall)cTextAssignment_1.eContents().get(0);
-		private final Keyword cNameKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cNameEStringParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
-		private final Assignment cNextRulesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cNextRulesNextRuleParserRuleCall_4_0 = (RuleCall)cNextRulesAssignment_4.eContents().get(0);
-		private final Assignment cCorrectAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cCorrectAnswerParserRuleCall_5_0 = (RuleCall)cCorrectAssignment_5.eContents().get(0);
-		private final Assignment cCandidatesAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cCandidatesAnswerParserRuleCall_6_0 = (RuleCall)cCandidatesAssignment_6.eContents().get(0);
+	public class TextAnswerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TextAnswer");
+		private final Assignment cTextAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cTextEStringParserRuleCall_0 = (RuleCall)cTextAssignment.eContents().get(0);
 		
-		//Question:
-		//	"Text: " text=EString "Name: " name=EString nextRules+=NextRule* correct=Answer? candidates+=Answer*;
+		//TextAnswer:
+		//	text=EString;
 		public ParserRule getRule() { return rule; }
 
-		//"Text: " text=EString "Name: " name=EString nextRules+=NextRule* correct=Answer? candidates+=Answer*
+		//text=EString
+		public Assignment getTextAssignment() { return cTextAssignment; }
+
+		//EString
+		public RuleCall getTextEStringParserRuleCall_0() { return cTextEStringParserRuleCall_0; }
+	}
+
+	public class YesNoAnswerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "YesNoAnswer");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cYesNoAnswerAction_0 = (Action)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cYesAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final Keyword cYesYesKeyword_1_0_0 = (Keyword)cYesAssignment_1_0.eContents().get(0);
+		private final Keyword cNoKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
+		
+		//YesNoAnswer:
+		//	{YesNoAnswer} (yes?="yes" | "no");
+		public ParserRule getRule() { return rule; }
+
+		//{YesNoAnswer} (yes?="yes" | "no")
 		public Group getGroup() { return cGroup; }
 
-		//"Text: "
-		public Keyword getTextKeyword_0() { return cTextKeyword_0; }
+		//{YesNoAnswer}
+		public Action getYesNoAnswerAction_0() { return cYesNoAnswerAction_0; }
 
-		//text=EString
-		public Assignment getTextAssignment_1() { return cTextAssignment_1; }
+		//yes?="yes" | "no"
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 
-		//EString
-		public RuleCall getTextEStringParserRuleCall_1_0() { return cTextEStringParserRuleCall_1_0; }
+		//yes?="yes"
+		public Assignment getYesAssignment_1_0() { return cYesAssignment_1_0; }
 
-		//"Name: "
-		public Keyword getNameKeyword_2() { return cNameKeyword_2; }
+		//"yes"
+		public Keyword getYesYesKeyword_1_0_0() { return cYesYesKeyword_1_0_0; }
 
-		//name=EString
-		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
-
-		//EString
-		public RuleCall getNameEStringParserRuleCall_3_0() { return cNameEStringParserRuleCall_3_0; }
-
-		//nextRules+=NextRule*
-		public Assignment getNextRulesAssignment_4() { return cNextRulesAssignment_4; }
-
-		//NextRule
-		public RuleCall getNextRulesNextRuleParserRuleCall_4_0() { return cNextRulesNextRuleParserRuleCall_4_0; }
-
-		//correct=Answer?
-		public Assignment getCorrectAssignment_5() { return cCorrectAssignment_5; }
-
-		//Answer
-		public RuleCall getCorrectAnswerParserRuleCall_5_0() { return cCorrectAnswerParserRuleCall_5_0; }
-
-		//candidates+=Answer*
-		public Assignment getCandidatesAssignment_6() { return cCandidatesAssignment_6; }
-
-		//Answer
-		public RuleCall getCandidatesAnswerParserRuleCall_6_0() { return cCandidatesAnswerParserRuleCall_6_0; }
+		//"no"
+		public Keyword getNoKeyword_1_1() { return cNoKeyword_1_1; }
 	}
 
 	public class EStringElements extends AbstractParserRuleElementFinder {
@@ -572,53 +512,22 @@ public class QaGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
 	}
-
-	public class EBooleanElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EBoolean");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cSTRINGTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Keyword cYESKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
-		private final Keyword cNOKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
-		
-		//EBoolean returns ecore::EBoolean:
-		//	STRING ("YES" | "NO");
-		public ParserRule getRule() { return rule; }
-
-		//STRING ("YES" | "NO")
-		public Group getGroup() { return cGroup; }
-
-		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_0() { return cSTRINGTerminalRuleCall_0; }
-
-		//"YES" | "NO"
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
-
-		//"YES"
-		public Keyword getYESKeyword_1_0() { return cYESKeyword_1_0; }
-
-		//"NO"
-		public Keyword getNOKeyword_1_1() { return cNOKeyword_1_1; }
-	}
 	
 	
-	private QAContainerElements pQAContainer;
 	private QATestElements pQATest;
 	private QAContainerOptionsElements pQAContainerOptions;
 	private QAPartElements pQAPart;
-	private QASectionElements pQASection;
-	private NextRuleElements pNextRule;
-	private TextAnswerElements pTextAnswer;
-	private ExpressionAnswerElements pExpressionAnswer;
-	private NumberAnswerElements pNumberAnswer;
-	private YesNoAnswerElements pYesNoAnswer;
-	private OptionAnswerElements pOptionAnswer;
-	private AnswerElements pAnswer;
 	private QuestionElements pQuestion;
+	private QASectionElements pQASection;
+	private AnswerElements pAnswer;
+	private ExpressionAnswerElements pExpressionAnswer;
+	private OptionAnswerElements pOptionAnswer;
+	private NumberAnswerElements pNumberAnswer;
+	private TextAnswerElements pTextAnswer;
+	private YesNoAnswerElements pYesNoAnswer;
 	private EStringElements pEString;
 	private EDoubleElements pEDouble;
 	private EIntElements pEInt;
-	private EBooleanElements pEBoolean;
 	
 	private final GrammarProvider grammarProvider;
 
@@ -641,16 +550,6 @@ public class QaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//QAContainer:
-	//	QATest | QASection;
-	public QAContainerElements getQAContainerAccess() {
-		return (pQAContainer != null) ? pQAContainer : (pQAContainer = new QAContainerElements());
-	}
-	
-	public ParserRule getQAContainerRule() {
-		return getQAContainerAccess().getRule();
-	}
-
 	//QATest:
 	//	"Title: " title=EString options=QAContainerOptions? parts+=QAPart*;
 	public QATestElements getQATestAccess() {
@@ -662,7 +561,7 @@ public class QaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//QAContainerOptions:
-	//	"RevealAnswer: " revealAnswer=EBoolean "try" maxTries=INT "times" (revealAnswer?="reveal" "correct" "answer")?;
+	//	"try" maxTries=INT "times" (revealAnswer?="reveal" "correct" "answer")?;
 	public QAContainerOptionsElements getQAContainerOptionsAccess() {
 		return (pQAContainerOptions != null) ? pQAContainerOptions : (pQAContainerOptions = new QAContainerOptionsElements());
 	}
@@ -681,8 +580,18 @@ public class QaGrammarAccess extends AbstractGrammarElementFinder {
 		return getQAPartAccess().getRule();
 	}
 
+	//Question:
+	//	text=EString "?" correct=Answer "!" ("Candidates: " candidates+=Answer (", " candidates+=Answer)*)?;
+	public QuestionElements getQuestionAccess() {
+		return (pQuestion != null) ? pQuestion : (pQuestion = new QuestionElements());
+	}
+	
+	public ParserRule getQuestionRule() {
+		return getQuestionAccess().getRule();
+	}
+
 	//QASection:
-	//	"Title: " title=EString "Name: " name=EString options=QAContainerOptions? questions+=Question*;
+	//	"Section " name=EString "{" options=QAContainerOptions? questions+=Question* "}";
 	public QASectionElements getQASectionAccess() {
 		return (pQASection != null) ? pQASection : (pQASection = new QASectionElements());
 	}
@@ -691,68 +600,8 @@ public class QaGrammarAccess extends AbstractGrammarElementFinder {
 		return getQASectionAccess().getRule();
 	}
 
-	//NextRule:
-	//	"Tries: " tries=EInt;
-	public NextRuleElements getNextRuleAccess() {
-		return (pNextRule != null) ? pNextRule : (pNextRule = new NextRuleElements());
-	}
-	
-	public ParserRule getNextRuleRule() {
-		return getNextRuleAccess().getRule();
-	}
-
-	//TextAnswer:
-	//	"Text: " text=EString;
-	public TextAnswerElements getTextAnswerAccess() {
-		return (pTextAnswer != null) ? pTextAnswer : (pTextAnswer = new TextAnswerElements());
-	}
-	
-	public ParserRule getTextAnswerRule() {
-		return getTextAnswerAccess().getRule();
-	}
-
-	//ExpressionAnswer:
-	//	"Epsilon: " epsilon=EDouble "Number: " number=EDouble "Expression: " expression=EString;
-	public ExpressionAnswerElements getExpressionAnswerAccess() {
-		return (pExpressionAnswer != null) ? pExpressionAnswer : (pExpressionAnswer = new ExpressionAnswerElements());
-	}
-	
-	public ParserRule getExpressionAnswerRule() {
-		return getExpressionAnswerAccess().getRule();
-	}
-
-	//NumberAnswer:
-	//	"Epsilon: " epsilon=EDouble "Number: " number=EDouble | ExpressionAnswer;
-	public NumberAnswerElements getNumberAnswerAccess() {
-		return (pNumberAnswer != null) ? pNumberAnswer : (pNumberAnswer = new NumberAnswerElements());
-	}
-	
-	public ParserRule getNumberAnswerRule() {
-		return getNumberAnswerAccess().getRule();
-	}
-
-	//YesNoAnswer:
-	//	"Yes: " yes?=EBoolean;
-	public YesNoAnswerElements getYesNoAnswerAccess() {
-		return (pYesNoAnswer != null) ? pYesNoAnswer : (pYesNoAnswer = new YesNoAnswerElements());
-	}
-	
-	public ParserRule getYesNoAnswerRule() {
-		return getYesNoAnswerAccess().getRule();
-	}
-
-	//OptionAnswer:
-	//	"OptionNumber: " optionNumber=EInt;
-	public OptionAnswerElements getOptionAnswerAccess() {
-		return (pOptionAnswer != null) ? pOptionAnswer : (pOptionAnswer = new OptionAnswerElements());
-	}
-	
-	public ParserRule getOptionAnswerRule() {
-		return getOptionAnswerAccess().getRule();
-	}
-
 	//Answer:
-	//	TextAnswer | NumberAnswer | YesNoAnswer | OptionAnswer;
+	//	OptionAnswer | NumberAnswer | TextAnswer | YesNoAnswer;
 	public AnswerElements getAnswerAccess() {
 		return (pAnswer != null) ? pAnswer : (pAnswer = new AnswerElements());
 	}
@@ -761,14 +610,54 @@ public class QaGrammarAccess extends AbstractGrammarElementFinder {
 		return getAnswerAccess().getRule();
 	}
 
-	//Question:
-	//	"Text: " text=EString "Name: " name=EString nextRules+=NextRule* correct=Answer? candidates+=Answer*;
-	public QuestionElements getQuestionAccess() {
-		return (pQuestion != null) ? pQuestion : (pQuestion = new QuestionElements());
+	//ExpressionAnswer:
+	//	"=" expression=EString ("+-" epsilon=EDouble)?;
+	public ExpressionAnswerElements getExpressionAnswerAccess() {
+		return (pExpressionAnswer != null) ? pExpressionAnswer : (pExpressionAnswer = new ExpressionAnswerElements());
 	}
 	
-	public ParserRule getQuestionRule() {
-		return getQuestionAccess().getRule();
+	public ParserRule getExpressionAnswerRule() {
+		return getExpressionAnswerAccess().getRule();
+	}
+
+	//OptionAnswer:
+	//	"#" optionNumber=EInt;
+	public OptionAnswerElements getOptionAnswerAccess() {
+		return (pOptionAnswer != null) ? pOptionAnswer : (pOptionAnswer = new OptionAnswerElements());
+	}
+	
+	public ParserRule getOptionAnswerRule() {
+		return getOptionAnswerAccess().getRule();
+	}
+
+	//NumberAnswer:
+	//	number=EDouble ("+-" epsilon=EDouble)? | ExpressionAnswer;
+	public NumberAnswerElements getNumberAnswerAccess() {
+		return (pNumberAnswer != null) ? pNumberAnswer : (pNumberAnswer = new NumberAnswerElements());
+	}
+	
+	public ParserRule getNumberAnswerRule() {
+		return getNumberAnswerAccess().getRule();
+	}
+
+	//TextAnswer:
+	//	text=EString;
+	public TextAnswerElements getTextAnswerAccess() {
+		return (pTextAnswer != null) ? pTextAnswer : (pTextAnswer = new TextAnswerElements());
+	}
+	
+	public ParserRule getTextAnswerRule() {
+		return getTextAnswerAccess().getRule();
+	}
+
+	//YesNoAnswer:
+	//	{YesNoAnswer} (yes?="yes" | "no");
+	public YesNoAnswerElements getYesNoAnswerAccess() {
+		return (pYesNoAnswer != null) ? pYesNoAnswer : (pYesNoAnswer = new YesNoAnswerElements());
+	}
+	
+	public ParserRule getYesNoAnswerRule() {
+		return getYesNoAnswerAccess().getRule();
 	}
 
 	//EString returns ecore::EString:
@@ -799,16 +688,6 @@ public class QaGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getEIntRule() {
 		return getEIntAccess().getRule();
-	}
-
-	//EBoolean returns ecore::EBoolean:
-	//	STRING ("YES" | "NO");
-	public EBooleanElements getEBooleanAccess() {
-		return (pEBoolean != null) ? pEBoolean : (pEBoolean = new EBooleanElements());
-	}
-	
-	public ParserRule getEBooleanRule() {
-		return getEBooleanAccess().getRule();
 	}
 
 	//terminal ID:

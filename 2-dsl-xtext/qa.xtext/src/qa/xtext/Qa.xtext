@@ -26,7 +26,7 @@ QASection:
 	'}'
 ;
 
-Answer: (ExpressionAnswer | OptionAnswer | NumberAnswer  | TextAnswer | YesNoAnswer);
+Answer: (OptionAnswer | NumberAnswer | TextAnswer | YesNoAnswer);
 
 
 ExpressionAnswer:
@@ -39,6 +39,7 @@ OptionAnswer:
 
 NumberAnswer:
 	number=EDouble ("+-" epsilon=EDouble)?
+	| ExpressionAnswer
 ;
 
 TextAnswer:

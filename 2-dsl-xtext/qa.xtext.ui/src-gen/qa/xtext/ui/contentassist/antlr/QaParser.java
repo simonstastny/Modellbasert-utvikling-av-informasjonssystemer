@@ -37,52 +37,47 @@ public class QaParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getQAContainerAccess().getAlternatives(), "rule__QAContainer__Alternatives");
 					put(grammarAccess.getQAPartAccess().getAlternatives(), "rule__QAPart__Alternatives");
-					put(grammarAccess.getNumberAnswerAccess().getAlternatives(), "rule__NumberAnswer__Alternatives");
 					put(grammarAccess.getAnswerAccess().getAlternatives(), "rule__Answer__Alternatives");
+					put(grammarAccess.getNumberAnswerAccess().getAlternatives(), "rule__NumberAnswer__Alternatives");
+					put(grammarAccess.getYesNoAnswerAccess().getAlternatives_1(), "rule__YesNoAnswer__Alternatives_1");
 					put(grammarAccess.getEDoubleAccess().getAlternatives_2_2_0(), "rule__EDouble__Alternatives_2_2_0");
-					put(grammarAccess.getEBooleanAccess().getAlternatives_1(), "rule__EBoolean__Alternatives_1");
 					put(grammarAccess.getQATestAccess().getGroup(), "rule__QATest__Group__0");
 					put(grammarAccess.getQAContainerOptionsAccess().getGroup(), "rule__QAContainerOptions__Group__0");
-					put(grammarAccess.getQAContainerOptionsAccess().getGroup_5(), "rule__QAContainerOptions__Group_5__0");
-					put(grammarAccess.getQASectionAccess().getGroup(), "rule__QASection__Group__0");
-					put(grammarAccess.getNextRuleAccess().getGroup(), "rule__NextRule__Group__0");
-					put(grammarAccess.getTextAnswerAccess().getGroup(), "rule__TextAnswer__Group__0");
-					put(grammarAccess.getExpressionAnswerAccess().getGroup(), "rule__ExpressionAnswer__Group__0");
-					put(grammarAccess.getNumberAnswerAccess().getGroup_0(), "rule__NumberAnswer__Group_0__0");
-					put(grammarAccess.getYesNoAnswerAccess().getGroup(), "rule__YesNoAnswer__Group__0");
-					put(grammarAccess.getOptionAnswerAccess().getGroup(), "rule__OptionAnswer__Group__0");
+					put(grammarAccess.getQAContainerOptionsAccess().getGroup_3(), "rule__QAContainerOptions__Group_3__0");
 					put(grammarAccess.getQuestionAccess().getGroup(), "rule__Question__Group__0");
+					put(grammarAccess.getQuestionAccess().getGroup_4(), "rule__Question__Group_4__0");
+					put(grammarAccess.getQuestionAccess().getGroup_4_2(), "rule__Question__Group_4_2__0");
+					put(grammarAccess.getQASectionAccess().getGroup(), "rule__QASection__Group__0");
+					put(grammarAccess.getExpressionAnswerAccess().getGroup(), "rule__ExpressionAnswer__Group__0");
+					put(grammarAccess.getExpressionAnswerAccess().getGroup_2(), "rule__ExpressionAnswer__Group_2__0");
+					put(grammarAccess.getOptionAnswerAccess().getGroup(), "rule__OptionAnswer__Group__0");
+					put(grammarAccess.getNumberAnswerAccess().getGroup_0(), "rule__NumberAnswer__Group_0__0");
+					put(grammarAccess.getNumberAnswerAccess().getGroup_0_1(), "rule__NumberAnswer__Group_0_1__0");
+					put(grammarAccess.getYesNoAnswerAccess().getGroup(), "rule__YesNoAnswer__Group__0");
 					put(grammarAccess.getEDoubleAccess().getGroup(), "rule__EDouble__Group__0");
 					put(grammarAccess.getEDoubleAccess().getGroup_2(), "rule__EDouble__Group_2__0");
 					put(grammarAccess.getEDoubleAccess().getGroup_2_2(), "rule__EDouble__Group_2_2__0");
 					put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
-					put(grammarAccess.getEBooleanAccess().getGroup(), "rule__EBoolean__Group__0");
 					put(grammarAccess.getQATestAccess().getTitleAssignment_1(), "rule__QATest__TitleAssignment_1");
 					put(grammarAccess.getQATestAccess().getOptionsAssignment_2(), "rule__QATest__OptionsAssignment_2");
 					put(grammarAccess.getQATestAccess().getPartsAssignment_3(), "rule__QATest__PartsAssignment_3");
-					put(grammarAccess.getQAContainerOptionsAccess().getRevealAnswerAssignment_1(), "rule__QAContainerOptions__RevealAnswerAssignment_1");
-					put(grammarAccess.getQAContainerOptionsAccess().getMaxTriesAssignment_3(), "rule__QAContainerOptions__MaxTriesAssignment_3");
-					put(grammarAccess.getQAContainerOptionsAccess().getRevealAnswerAssignment_5_0(), "rule__QAContainerOptions__RevealAnswerAssignment_5_0");
-					put(grammarAccess.getQASectionAccess().getTitleAssignment_1(), "rule__QASection__TitleAssignment_1");
-					put(grammarAccess.getQASectionAccess().getNameAssignment_3(), "rule__QASection__NameAssignment_3");
-					put(grammarAccess.getQASectionAccess().getOptionsAssignment_4(), "rule__QASection__OptionsAssignment_4");
-					put(grammarAccess.getQASectionAccess().getQuestionsAssignment_5(), "rule__QASection__QuestionsAssignment_5");
-					put(grammarAccess.getNextRuleAccess().getTriesAssignment_1(), "rule__NextRule__TriesAssignment_1");
-					put(grammarAccess.getTextAnswerAccess().getTextAssignment_1(), "rule__TextAnswer__TextAssignment_1");
-					put(grammarAccess.getExpressionAnswerAccess().getEpsilonAssignment_1(), "rule__ExpressionAnswer__EpsilonAssignment_1");
-					put(grammarAccess.getExpressionAnswerAccess().getNumberAssignment_3(), "rule__ExpressionAnswer__NumberAssignment_3");
-					put(grammarAccess.getExpressionAnswerAccess().getExpressionAssignment_5(), "rule__ExpressionAnswer__ExpressionAssignment_5");
-					put(grammarAccess.getNumberAnswerAccess().getEpsilonAssignment_0_1(), "rule__NumberAnswer__EpsilonAssignment_0_1");
-					put(grammarAccess.getNumberAnswerAccess().getNumberAssignment_0_3(), "rule__NumberAnswer__NumberAssignment_0_3");
-					put(grammarAccess.getYesNoAnswerAccess().getYesAssignment_1(), "rule__YesNoAnswer__YesAssignment_1");
+					put(grammarAccess.getQAContainerOptionsAccess().getMaxTriesAssignment_1(), "rule__QAContainerOptions__MaxTriesAssignment_1");
+					put(grammarAccess.getQAContainerOptionsAccess().getRevealAnswerAssignment_3_0(), "rule__QAContainerOptions__RevealAnswerAssignment_3_0");
+					put(grammarAccess.getQuestionAccess().getTextAssignment_0(), "rule__Question__TextAssignment_0");
+					put(grammarAccess.getQuestionAccess().getCorrectAssignment_2(), "rule__Question__CorrectAssignment_2");
+					put(grammarAccess.getQuestionAccess().getCandidatesAssignment_4_1(), "rule__Question__CandidatesAssignment_4_1");
+					put(grammarAccess.getQuestionAccess().getCandidatesAssignment_4_2_1(), "rule__Question__CandidatesAssignment_4_2_1");
+					put(grammarAccess.getQASectionAccess().getNameAssignment_1(), "rule__QASection__NameAssignment_1");
+					put(grammarAccess.getQASectionAccess().getOptionsAssignment_3(), "rule__QASection__OptionsAssignment_3");
+					put(grammarAccess.getQASectionAccess().getQuestionsAssignment_4(), "rule__QASection__QuestionsAssignment_4");
+					put(grammarAccess.getExpressionAnswerAccess().getExpressionAssignment_1(), "rule__ExpressionAnswer__ExpressionAssignment_1");
+					put(grammarAccess.getExpressionAnswerAccess().getEpsilonAssignment_2_1(), "rule__ExpressionAnswer__EpsilonAssignment_2_1");
 					put(grammarAccess.getOptionAnswerAccess().getOptionNumberAssignment_1(), "rule__OptionAnswer__OptionNumberAssignment_1");
-					put(grammarAccess.getQuestionAccess().getTextAssignment_1(), "rule__Question__TextAssignment_1");
-					put(grammarAccess.getQuestionAccess().getNameAssignment_3(), "rule__Question__NameAssignment_3");
-					put(grammarAccess.getQuestionAccess().getNextRulesAssignment_4(), "rule__Question__NextRulesAssignment_4");
-					put(grammarAccess.getQuestionAccess().getCorrectAssignment_5(), "rule__Question__CorrectAssignment_5");
-					put(grammarAccess.getQuestionAccess().getCandidatesAssignment_6(), "rule__Question__CandidatesAssignment_6");
+					put(grammarAccess.getNumberAnswerAccess().getNumberAssignment_0_0(), "rule__NumberAnswer__NumberAssignment_0_0");
+					put(grammarAccess.getNumberAnswerAccess().getEpsilonAssignment_0_1_1(), "rule__NumberAnswer__EpsilonAssignment_0_1_1");
+					put(grammarAccess.getTextAnswerAccess().getTextAssignment(), "rule__TextAnswer__TextAssignment");
+					put(grammarAccess.getYesNoAnswerAccess().getYesAssignment_1_0(), "rule__YesNoAnswer__YesAssignment_1_0");
 				}
 			};
 		}
@@ -93,7 +88,7 @@ public class QaParser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			qa.xtext.ui.contentassist.antlr.internal.InternalQaParser typedParser = (qa.xtext.ui.contentassist.antlr.internal.InternalQaParser) parser;
-			typedParser.entryRuleQAContainer();
+			typedParser.entryRuleQATest();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);

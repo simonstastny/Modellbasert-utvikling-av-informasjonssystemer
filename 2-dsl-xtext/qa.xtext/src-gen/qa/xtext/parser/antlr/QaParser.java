@@ -25,7 +25,7 @@ public class QaParser extends org.eclipse.xtext.parser.antlr.AbstractAntlrParser
 	
 	@Override 
 	protected String getDefaultRuleName() {
-		return "QAContainer";
+		return "QATest";
 	}
 	
 	public QaGrammarAccess getGrammarAccess() {
