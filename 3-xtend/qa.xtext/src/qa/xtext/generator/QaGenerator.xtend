@@ -51,23 +51,81 @@ class QaGenerator implements IGenerator {
 
 	def dispatch CharSequence generate(QASection qs) {
 		'''
-		//Generated codes for a section
 		{
-		io.println("Here comes a section");
+		io.println("[Section «qs.name»]");
 		«qs.questions.join("\n", [q | q.generate])»
-		}'''
+		}
+		'''
 	}
 
 	def dispatch CharSequence generate(Question q) {
 		'''
-		//Generated codes for a question
-		    {
-		        io.println("Here comes a question");
-		        //repeat the following until a correct answer is given, or hit the maximum tries if there is.
-		    	//1.print out the question,
-		        //2.get user input 
-		        //3.compare user input with the correct answer, and notify user correct or wrong answer
-		    }
-		    '''
+		{
+			io.print("[«q.correct.^class.toString»] ");
+			io.print("«q.text»");
+			
+			«IF q.correct instanceof YesNoAnswer»
+				{
+				String response = io.inputString("");
+				if (response.equals("yes") && «(q.correct as YesNoAnswer).yes») {
+					io.println("Correct!");
+				}
+				else {
+					io.println("Wrong!");
+				}
+				}
+			«ENDIF»
+			«IF q.correct instanceof TextAnswer»
+				{
+				String response = io.inputString("");
+				if (response.equals("«(q.correct as TextAnswer).text»")) {
+					io.println("Correct!");
+				}
+				else {
+					io.println("Wrong!");
+				}
+				}
+			«ENDIF»
+			«IF q.correct instanceof NumberAnswer»
+				{
+				Double response = io.inputDouble("");
+				if (response == «(q.correct as NumberAnswer).number») {
+					io.println("Correct!");
+				}
+				else {
+					io.println("Wrong!");
+				}
+				}
+			«ENDIF»
+			«IF q.correct instanceof ExpressionAnswer»
+				{
+				String response = io.inputString(""); //use XBase to eval the expression
+				if (2 == «(q.correct as NumberAnswer).number») { //temp
+					io.println("Correct!");
+				}
+				else {
+					io.println("Wrong!");
+				}
+				}
+			«ENDIF»
+			«IF q.correct instanceof OptionAnswer»
+				{
+				//print options
+				«var i=0»
+				«FOR option : q.candidates»				
+					io.println("? «i=i+1»)«(option as TextAnswer).text»");
+				«ENDFOR»
+				
+				int response = io.inputInt("");
+				if (response == «(q.correct as OptionAnswer).optionNumber») {
+					io.println("Correct!");
+				}
+				else {
+					io.println("Wrong!");
+				}
+				}
+		  «ENDIF»
+		}
+		'''
 	}
 }
