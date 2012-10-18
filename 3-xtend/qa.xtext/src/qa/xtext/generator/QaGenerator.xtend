@@ -104,8 +104,29 @@ class QaGenerator implements IGenerator {
 			while(tries < (Integer) maxTries.peek()) {
 				tries++;
 				
-			io.print("[«q.correct.^class.toString»] ");
 			io.print("«q.text»");
+			«var i=0»
+			«FOR option : q.candidates»
+				«IF i==0»
+				io.println("");
+				«ENDIF»				
+				«IF option instanceof TextAnswer»
+				io.println("? «i=i+1»)«(option as TextAnswer).text»");
+				«ENDIF»
+				«IF option instanceof NumberAnswer»
+				io.println("? «i=i+1»)«(option as NumberAnswer).number»");
+				«ENDIF»
+				«IF option instanceof YesNoAnswer»
+				io.println("? «i=i+1»)«(option as YesNoAnswer).yes»");
+				«ENDIF»
+				«IF option instanceof ExpressionAnswer»
+				io.println("? «i=i+1»)«(option as ExpressionAnswer).number»");
+				«ENDIF»
+			«ENDFOR»
+			«IF i>0 && q.correct instanceof OptionAnswer»
+				io.print("Select option (1-«i»)");
+			«ENDIF»
+			
 			
 			«IF q.correct instanceof YesNoAnswer»
 				{
@@ -195,10 +216,7 @@ class QaGenerator implements IGenerator {
 					rightAnswer = "«(q.correct as OptionAnswer).optionNumber»";
 					io.println("");
 					//print options
-					«var i=0»
-					«FOR option : q.candidates»				
-						io.println("? «i=i+1»)«(option as TextAnswer).text»");
-					«ENDFOR»
+					
 					
 					int response = io.inputInt("");
 					if (response == «(q.correct as OptionAnswer).optionNumber») {
