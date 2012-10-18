@@ -39,6 +39,8 @@ class QaGenerator implements IGenerator {
 				private int tries = 0;			
 				private String rightAnswer = null;
 				
+				private int nextPart = 0;
+				
 				private tdt4250.io.AbstractIO io = new tdt4250.io.ConsoleIO();
 				
 				public void run() {
@@ -95,6 +97,10 @@ class QaGenerator implements IGenerator {
 		{
 			tries = 0;
 			
+			if(nextPart == 0 || nextPart == «q.hashCode») {
+			
+			nextPart = 0;
+			
 			while(tries < (Integer) maxTries.peek()) {
 				tries++;
 				
@@ -110,6 +116,13 @@ class QaGenerator implements IGenerator {
 						break;
 					} else if (response.equals("no") && !«(q.correct as YesNoAnswer).yes») {
 						io.println("Correct!");
+						
+						«FOR rule : q.nextRules»
+						if(tries<=«rule.tries» && «rule.next != null») {
+							nextPart = «rule.next.hashCode»;
+							}
+						«ENDFOR»
+						
 						break;
 					}
 					else {
@@ -123,6 +136,13 @@ class QaGenerator implements IGenerator {
 					String response = io.inputString("");
 					if (response.equals("«(q.correct as TextAnswer).text»")) {
 						io.println("Correct!");
+						
+						«FOR rule : q.nextRules»
+						if(tries<=«rule.tries» && «rule.next != null») {
+							nextPart = «rule.next.hashCode»;
+							}
+						«ENDFOR»
+						
 						break;
 					}
 					else {
@@ -137,6 +157,13 @@ class QaGenerator implements IGenerator {
 					
 					if (Math.abs(response - «(q.correct as ExpressionAnswer).expression») <= «(q.correct as ExpressionAnswer).epsilon») {
 						io.println("Correct!");
+						
+						«FOR rule : q.nextRules»
+						if(tries<=«rule.tries» && «rule.next != null») {
+							nextPart = «rule.next.hashCode»;
+							}
+						«ENDFOR»
+						
 						break;
 					}
 					else {
@@ -149,6 +176,13 @@ class QaGenerator implements IGenerator {
 					Double response = io.inputDouble("");
 					if (Math.abs(response - «(q.correct as NumberAnswer).number») <= «(q.correct as NumberAnswer).epsilon») {
 						io.println("Correct!");
+						
+						«FOR rule : q.nextRules»
+						if(tries<=«rule.tries» && «rule.next != null») {
+							nextPart = «rule.next.hashCode»;
+							}
+						«ENDFOR»
+						
 						break;
 					}
 					else {
@@ -169,6 +203,13 @@ class QaGenerator implements IGenerator {
 					int response = io.inputInt("");
 					if (response == «(q.correct as OptionAnswer).optionNumber») {
 						io.println("Correct!");
+						
+						«FOR rule : q.nextRules»
+						if(tries<=«rule.tries» && «rule.next != null») {
+							nextPart = «rule.next.hashCode»;
+							}
+						«ENDFOR»
+
 						break;
 					}
 					else {
@@ -181,6 +222,7 @@ class QaGenerator implements IGenerator {
 		
 			if(tries== (Integer) maxTries.peek() && (Boolean) reveal.peek()) {
 				io.println(rightAnswer);
+			}
 			}
 		}
 		'''
