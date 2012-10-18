@@ -27,11 +27,23 @@ class QaGenerator implements IGenerator {
 		val packageName = packageNameList.join(".")
 		fsa.generateFile(packageNameList.join("/") + "/" + className + ".java", '''
 			package «packageNameList.join(".")»;
+			
+			import java.util.Stack;
+			
 			public class «className» implements Runnable {
+				
+				private Stack maxTries = new Stack();
+				private Stack reveal = new Stack();
+				
+				
+				private int tries = 0;			
+				private String rightAnswer = null;
 				
 				private tdt4250.io.AbstractIO io = new tdt4250.io.ConsoleIO();
 				
 				public void run() {
+					maxTries.push(Integer.valueOf(3));
+					reveal.push(Boolean.TRUE);
 					«generate(resource.contents.get(0) as QATest)»
 				}
 
@@ -43,7 +55,19 @@ class QaGenerator implements IGenerator {
 	}
 
 	def dispatch CharSequence generate(QATest qa) {
-		qa.parts.join("\n", [p | p.generate])
+		'''
+		{
+		«IF qa.options !=null» 
+			maxTries.push(Integer.valueOf(«qa.options.maxTries»));
+			reveal.push(Boolean.valueOf(«qa.options.revealAnswer»));
+		«ENDIF»
+		«qa.parts.join("\n", [p | p.generate])»
+		«IF qa.options !=null» 
+			reveal.pop();
+			maxTries.pop();
+		«ENDIF» 
+		}
+		'''
 	}
 
 	def dispatch CharSequence generate(QAPart qa) {
@@ -52,8 +76,16 @@ class QaGenerator implements IGenerator {
 	def dispatch CharSequence generate(QASection qs) {
 		'''
 		{
-		io.println("[Section «qs.name»]");
+		io.println("[Section «qs.title»]");
+		«IF qs.options !=null» 
+			maxTries.push(Integer.valueOf(«qs.options.maxTries»));
+			reveal.push(Boolean.valueOf(«qs.options.revealAnswer»));
+		«ENDIF»
 		«qs.questions.join("\n", [q | q.generate])»
+		«IF qs.options !=null» 
+			reveal.pop();
+			maxTries.pop();
+		«ENDIF» 
 		}
 		'''
 	}
@@ -61,13 +93,17 @@ class QaGenerator implements IGenerator {
 	def dispatch CharSequence generate(Question q) {
 		'''
 		{
-			while(true) {
+			tries = 0;
+			
+			while(tries < (Integer) maxTries.peek()) {
+				tries++;
+				
 			io.print("[«q.correct.^class.toString»] ");
 			io.print("«q.text»");
 			
 			«IF q.correct instanceof YesNoAnswer»
 				{
-				
+					rightAnswer = "«(q.correct as YesNoAnswer).yes»";
 					String response = io.inputString("");
 					if (response.equals("yes") && «(q.correct as YesNoAnswer).yes») {
 						io.println("Correct!");
@@ -83,6 +119,7 @@ class QaGenerator implements IGenerator {
 			«ENDIF»
 			«IF q.correct instanceof TextAnswer»
 				{
+					rightAnswer = "«(q.correct as TextAnswer).text»";
 					String response = io.inputString("");
 					if (response.equals("«(q.correct as TextAnswer).text»")) {
 						io.println("Correct!");
@@ -95,7 +132,8 @@ class QaGenerator implements IGenerator {
 			«ENDIF»
 			«IF q.correct instanceof ExpressionAnswer»
 				{
-					Double response = io.inputDouble(""); //use XBase to eval the expression
+					rightAnswer = String.valueOf(«(q.correct as ExpressionAnswer).expression») + "«(q.correct as ExpressionAnswer).epsilon»";
+					Double response = io.inputDouble("");
 					
 					if (Math.abs(response - «(q.correct as ExpressionAnswer).expression») <= «(q.correct as ExpressionAnswer).epsilon») {
 						io.println("Correct!");
@@ -107,6 +145,7 @@ class QaGenerator implements IGenerator {
 				}
 			«ELSEIF q.correct instanceof NumberAnswer»
 				{
+					rightAnswer = "«(q.correct as NumberAnswer).number»";
 					Double response = io.inputDouble("");
 					if (Math.abs(response - «(q.correct as NumberAnswer).number») <= «(q.correct as NumberAnswer).epsilon») {
 						io.println("Correct!");
@@ -119,6 +158,7 @@ class QaGenerator implements IGenerator {
 			«ENDIF»
 			«IF q.correct instanceof OptionAnswer»
 				{
+					rightAnswer = "«(q.correct as OptionAnswer).optionNumber»";
 					io.println("");
 					//print options
 					«var i=0»
@@ -136,7 +176,12 @@ class QaGenerator implements IGenerator {
 					}
 				}
 		  «ENDIF»
-		}
+		  
+		  }
+		
+			if(tries== (Integer) maxTries.peek() && (Boolean) reveal.peek()) {
+				io.println(rightAnswer);
+			}
 		}
 		'''
 	}
