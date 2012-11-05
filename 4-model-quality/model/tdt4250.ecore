@@ -14,6 +14,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="isCoordinated" upperBound="-1"
         eType="#//Teacher" eOpposite="#//Teacher/coordinates"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attends" eType="#//Person"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attended" upperBound="-1"
+        eType="#//Person"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="coordinated" lowerBound="1"
+        eType="#//Person"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Assignment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -27,6 +31,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Answer">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="submittedBy" lowerBound="1"
+        eType="#//Person"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Student" eSuperTypes="#//Person">
     <eStructuralFeatures xsi:type="ecore:EReference" name="attends" upperBound="-1"
@@ -43,9 +49,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="Person">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="submitted" eType="#//Answer"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="attends" eType="#//Course"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="isResponsible" eType="#//Course"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="submitted" upperBound="-1"
+        eType="#//Answer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attends" upperBound="-1"
+        eType="#//Course"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isResponsible" upperBound="-1"
+        eType="#//Course"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Teacher" eSuperTypes="#//Person">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" eType="#//ResponsibilityRole"/>

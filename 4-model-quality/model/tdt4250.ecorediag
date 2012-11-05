@@ -233,4 +233,46 @@
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Y6oJsCduEeKsSJflfBDxuw" id="(0.2,0.9264705882352942)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XKYUECduEeKsSJflfBDxuw" id="(0.13043478260869565,0.3411764705882353)"/>
   </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_XV-jQCdyEeKsSJflfBDxuw" type="3002" source="_FzYZwPafEeGTdbVl-ioHWQ" target="_asjmAPd5EeGTOcG1pdh6GQ">
+    <children xmi:type="notation:Node" xmi:id="_XV_KUCdyEeKsSJflfBDxuw" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_XV_KUSdyEeKsSJflfBDxuw" x="-13" y="41"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_XV_xYCdyEeKsSJflfBDxuw" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_XV_xYSdyEeKsSJflfBDxuw" x="12" y="19"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_XV-jQSdyEeKsSJflfBDxuw" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_XV-jQidyEeKsSJflfBDxuw" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="tdt4250.ecore#//Course/attended"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XV-jQydyEeKsSJflfBDxuw" points="[-6, -7, 2, 219]$[-6, -236, 2, -10]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XWCNoCdyEeKsSJflfBDxuw" id="(0.8695652173913043,0.09411764705882353)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XWCNoSdyEeKsSJflfBDxuw" id="(0.8,0.16176470588235295)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_bIcvUCdyEeKsSJflfBDxuw" type="3002" source="_FzYZwPafEeGTdbVl-ioHWQ" target="_asjmAPd5EeGTOcG1pdh6GQ">
+    <children xmi:type="notation:Node" xmi:id="_bIdWYCdyEeKsSJflfBDxuw" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_bIdWYSdyEeKsSJflfBDxuw" x="-8" y="-23"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_bIdWYidyEeKsSJflfBDxuw" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_bIdWYydyEeKsSJflfBDxuw" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_bIcvUSdyEeKsSJflfBDxuw" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_bIcvUidyEeKsSJflfBDxuw" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="tdt4250.ecore#//Course/coordinated"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_bIcvUydyEeKsSJflfBDxuw" points="[-7, -9, 1, 177]$[-7, -172, 1, 14]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_bIgZsCdyEeKsSJflfBDxuw" id="(0.2608695652173913,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_bIgZsSdyEeKsSJflfBDxuw" id="(0.2956521739130435,0.9852941176470589)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_kqBzQCdyEeKsSJflfBDxuw" type="3002" source="_XzZNIPagEeGTdbVl-ioHWQ" target="_asjmAPd5EeGTOcG1pdh6GQ">
+    <children xmi:type="notation:Node" xmi:id="_kqBzRCdyEeKsSJflfBDxuw" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_kqBzRSdyEeKsSJflfBDxuw" x="-45" y="-13"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_kqCaUCdyEeKsSJflfBDxuw" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_kqCaUSdyEeKsSJflfBDxuw" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_kqBzQSdyEeKsSJflfBDxuw" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_kqBzQidyEeKsSJflfBDxuw" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="tdt4250.ecore#//Answer/submittedBy"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_kqBzQydyEeKsSJflfBDxuw" points="[-7, 9, 178, 2]$[-183, 28, 2, 21]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_kqEPgCdyEeKsSJflfBDxuw" id="(0.06349206349206349,0.6862745098039216)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_kqEPgSdyEeKsSJflfBDxuw" id="(0.7739130434782608,0.6911764705882353)"/>
+  </edges>
 </notation:Diagram>
