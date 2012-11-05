@@ -7,7 +7,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="credit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="has" upperBound="-1" eType="#//Assigment"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="has" upperBound="-1" eType="#//Assignment"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="isAttended" upperBound="-1"
         eType="#//Student" eOpposite="#//Student/attends"/>
@@ -15,7 +15,7 @@
         eType="#//Teacher" eOpposite="#//Teacher/coordinates"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attends" eType="#//Person"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Assigment">
+  <eClassifiers xsi:type="ecore:EClass" name="Assignment">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
