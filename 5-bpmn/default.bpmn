@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:BpmnDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:bpmn="http://stp.eclipse.org/bpmn" xmi:id="_ANq84BybEeK3lvKH7RjT3A" iD="_ANqV0RybEeK3lvKH7RjT3A">
+  <pools xmi:type="bpmn:Pool" xmi:id="_APdFkBybEeK3lvKH7RjT3A" iD="_APcegBybEeK3lvKH7RjT3A" name="CourseResponsible">
+    <vertices xmi:type="bpmn:Activity" xmi:id="_AQ3a0RybEeK3lvKH7RjT3A" iD="_AQ3a0BybEeK3lvKH7RjT3A" name="Exercise assignment" activityType="Task"/>
+  </pools>
+  <pools xmi:type="bpmn:Pool" xmi:id="_YjQsQBzeEeKQGbqqCnj-gg" iD="_YjOQABzeEeKQGbqqCnj-gg" name="Student">
+    <vertices xmi:type="bpmn:Activity" xmi:id="_YjQsQRzeEeKQGbqqCnj-gg" iD="_YjOQARzeEeKQGbqqCnj-gg" name="exercie performing" activityType="Task"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_dRG7cBzeEeKQGbqqCnj-gg" iD="_dRGUYBzeEeKQGbqqCnj-gg" activityType="EventIntermediateMessage"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_5rpCYRzeEeKQGbqqCnj-gg" iD="_5rpCYBzeEeKQGbqqCnj-gg" name="exercise submitting" activityType="Task">
+      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="#_Nnqr8RzfEeKQGbqqCnj-gg"/>
+    </vertices>
+  </pools>
+  <pools xmi:type="bpmn:Pool" xmi:id="_KJCB4BzfEeKQGbqqCnj-gg" iD="_KI_loBzfEeKQGbqqCnj-gg" name="Student">
+    <vertices xmi:type="bpmn:Activity" xmi:id="_KJCB4RzfEeKQGbqqCnj-gg" iD="_KI_loRzfEeKQGbqqCnj-gg" name="answer reception" activityType="Task"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_KJCB4hzfEeKQGbqqCnj-gg" iD="_KI_lohzfEeKQGbqqCnj-gg" activityType="EventIntermediateMessage">
+      <incomingMessages xmi:type="bpmn:MessagingEdge" href="#_Nnqr8RzfEeKQGbqqCnj-gg"/>
+    </vertices>
+  </pools>
+  <messages xmi:type="bpmn:MessagingEdge" xmi:id="_Nnqr8RzfEeKQGbqqCnj-gg" iD="_Nnqr8BzfEeKQGbqqCnj-gg" source="_5rpCYRzeEeKQGbqqCnj-gg" target="_KJCB4hzfEeKQGbqqCnj-gg"/>
+</bpmn:BpmnDiagram>
