@@ -4,8 +4,22 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model"
     nsURI="http://model/1.0" nsPrefix="model">
   <eClassifiers xsi:type="ecore:EClass" name="root">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//Exercise"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containsExercise" upperBound="-1"
+        eType="#//Exercise" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="containsStudent" upperBound="-1"
+        eType="#//Student" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Student"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Exercise"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Student">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="submits" upperBound="-1"
+        eType="#//Exercise"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Exercise">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="group_number"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="submission_date"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="answer"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="submittedBy" eType="#//Student"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Response"/>
 </ecore:EPackage>
