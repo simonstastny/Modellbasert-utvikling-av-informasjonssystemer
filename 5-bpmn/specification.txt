@@ -1,0 +1,9 @@
+Consider the following case about the submission and preliminary validation of an course exercise, and do the tasks:
+1. Create a BPMN model of the case, using Eclipse's BPMN editor (install the BPMN project feature in the SOA development category).
+2. Create a domain model for the case, enough to support the BPMN model, using Ecore.
+3. Describe pre- and post-conditions for the state of the domain (data) for each task, and create example data (state) for a task that is about mid-way through the overall process.
+
+Exercise delivery case description:
+when the exercise is assigned to the students, the students need to submit the exercise within a specific time through the submission system. The preliminary exercise validation process should start with the reception of the exercise from a group of students. Then, the exercise validation system will check the validity of an exercise delivery (Whether the deadline is missed, whether the answer string is an empty one and etc). We assume that the exercise delivery contains the following elements: Group Number, Submission Date, Answer of the Exercise. Finally, a response will be given by the system as a result of the exercise validation (a confirmation that everything's OK, or an answer saying what is missing or wrong with the submission).
+
+NOTE: The submission should be a zip-file containing the Eclipse project.
