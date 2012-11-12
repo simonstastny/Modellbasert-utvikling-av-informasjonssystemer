@@ -1,42 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:BpmnDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:bpmn="http://stp.eclipse.org/bpmn" xmi:id="_ANq84BybEeK3lvKH7RjT3A" iD="_ANqV0RybEeK3lvKH7RjT3A">
-  <pools xmi:type="bpmn:Pool" xmi:id="_APdFkBybEeK3lvKH7RjT3A" iD="_APcegBybEeK3lvKH7RjT3A" name="Course staff">
-    <vertices xmi:type="bpmn:Activity" xmi:id="_Wa-3ASzKEeKc5Icq22My-g" iD="_Wa-3ACzKEeKc5Icq22My-g" outgoingEdges="_syo1gSzKEeKc5Icq22My-g" name="Create exercise"/>
-    <vertices xmi:type="bpmn:Activity" xmi:id="_kfVikSzKEeKc5Icq22My-g" iD="_kfVikCzKEeKc5Icq22My-g" incomingEdges="_syo1gSzKEeKc5Icq22My-g" name="Assign exercise">
-      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="#_mDjuYSzKEeKc5Icq22My-g"/>
-    </vertices>
-    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_syo1gSzKEeKc5Icq22My-g" iD="_syo1gCzKEeKc5Icq22My-g"/>
-  </pools>
   <pools xmi:type="bpmn:Pool" xmi:id="_YjQsQBzeEeKQGbqqCnj-gg" iD="_YjOQABzeEeKQGbqqCnj-gg" name="Student">
     <vertices xmi:type="bpmn:Activity" xmi:id="_YjQsQRzeEeKQGbqqCnj-gg" iD="_YjOQARzeEeKQGbqqCnj-gg" outgoingEdges="_uklUQSzKEeKc5Icq22My-g" incomingEdges="_uNqCASzKEeKc5Icq22My-g" name="Perform exercise" activityType="Task"/>
     <vertices xmi:type="bpmn:Activity" xmi:id="_dRG7cBzeEeKQGbqqCnj-gg" iD="_dRGUYBzeEeKQGbqqCnj-gg" outgoingEdges="_tyeh4CzKEeKc5Icq22My-g" activityType="EventIntermediateMessage">
-      <incomingMessages xmi:type="bpmn:MessagingEdge" href="#_mDjuYSzKEeKc5Icq22My-g"/>
+      <incomingMessages xmi:type="bpmn:MessagingEdge" href="#_mPMrwSzMEeKc5Icq22My-g"/>
     </vertices>
     <vertices xmi:type="bpmn:Activity" xmi:id="_5rpCYRzeEeKQGbqqCnj-gg" iD="_5rpCYBzeEeKQGbqqCnj-gg" incomingEdges="_uklUQSzKEeKc5Icq22My-g" name="Deliver exercise" activityType="Task">
-      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="#_Nnqr8RzfEeKQGbqqCnj-gg"/>
+      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="#_rz2AESzMEeKc5Icq22My-g"/>
     </vertices>
     <vertices xmi:type="bpmn:Activity" xmi:id="_L503VCzIEeKc5Icq22My-g" iD="_L50QQSzIEeKc5Icq22My-g" activityType="EventIntermediateMessage">
-      <incomingMessages xmi:type="bpmn:MessagingEdge" href="#_OtCl0SzIEeKc5Icq22My-g"/>
+      <incomingMessages xmi:type="bpmn:MessagingEdge" href="#_kCcq4SzNEeKc5Icq22My-g"/>
     </vertices>
     <vertices xmi:type="bpmn:Activity" xmi:id="_Fsm1MSzKEeKc5Icq22My-g" iD="_Fsm1MCzKEeKc5Icq22My-g" outgoingEdges="_uNqCASzKEeKc5Icq22My-g" incomingEdges="_tyeh4CzKEeKc5Icq22My-g" name="Receive exercise"/>
     <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_tyeh4CzKEeKc5Icq22My-g" iD="_tyd60CzKEeKc5Icq22My-g"/>
     <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_uNqCASzKEeKc5Icq22My-g" iD="_uNqCACzKEeKc5Icq22My-g"/>
     <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_uklUQSzKEeKc5Icq22My-g" iD="_uklUQCzKEeKc5Icq22My-g"/>
   </pools>
-  <pools xmi:type="bpmn:Pool" xmi:id="_KJCB4BzfEeKQGbqqCnj-gg" iD="_KI_loBzfEeKQGbqqCnj-gg" name="System">
-    <vertices xmi:type="bpmn:Activity" xmi:id="_KJCB4RzfEeKQGbqqCnj-gg" iD="_KI_loRzfEeKQGbqqCnj-gg" outgoingEdges="_CGU1kCzLEeKc5Icq22My-g" incomingEdges="_83ziQSzKEeKc5Icq22My-g" name="Receive delivery" activityType="Task"/>
-    <vertices xmi:type="bpmn:Activity" xmi:id="_KJCB4hzfEeKQGbqqCnj-gg" iD="_KI_lohzfEeKQGbqqCnj-gg" outgoingEdges="_83ziQSzKEeKc5Icq22My-g" activityType="EventIntermediateMessage">
-      <incomingMessages xmi:type="bpmn:MessagingEdge" href="#_Nnqr8RzfEeKQGbqqCnj-gg"/>
+  <pools xmi:type="bpmn:Pool" xmi:id="_-YjG0CzLEeKc5Icq22My-g" iD="_-YifwCzLEeKc5Icq22My-g" name="2">
+    <vertices xmi:type="bpmn:Activity" xmi:id="_EwQPwCzMEeKc5Icq22My-g" iD="_EwNzgCzMEeKc5Icq22My-g" outgoingEdges="_EwSsACzMEeKc5Icq22My-g" name="Create exercise" lanes="__7F3oSzLEeKc5Icq22My-g"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_EwRd4CzMEeKc5Icq22My-g" iD="_EwPBoCzMEeKc5Icq22My-g" incomingEdges="_EwSsACzMEeKc5Icq22My-g" name="Assign exercise" lanes="__7F3oSzLEeKc5Icq22My-g">
+      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="#_mPMrwSzMEeKc5Icq22My-g"/>
     </vertices>
-    <vertices xmi:type="bpmn:Activity" xmi:id="_8aXfsSzHEeKc5Icq22My-g" iD="_8aXfsCzHEeKc5Icq22My-g" outgoingEdges="_FaeG4SzLEeKc5Icq22My-g" incomingEdges="_CGU1kCzLEeKc5Icq22My-g" name="Check validity"/>
-    <vertices xmi:type="bpmn:Activity" xmi:id="_9I8c8SzHEeKc5Icq22My-g" iD="_9I8c8CzHEeKc5Icq22My-g" incomingEdges="_FaeG4SzLEeKc5Icq22My-g" name="Send validation result">
-      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="#_OtCl0SzIEeKc5Icq22My-g"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_MERP8CzMEeKc5Icq22My-g" iD="_MEBYUCzMEeKc5Icq22My-g" outgoingEdges="_METsMSzMEeKc5Icq22My-g" incomingEdges="_MESeESzMEeKc5Icq22My-g" name="Receive delivery" lanes="_AXVHsSzMEeKc5Icq22My-g" activityType="Task"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_MERP8SzMEeKc5Icq22My-g" iD="_MEOzsCzMEeKc5Icq22My-g" outgoingEdges="_MESeESzMEeKc5Icq22My-g" lanes="_AXVHsSzMEeKc5Icq22My-g" activityType="EventIntermediateMessage">
+      <incomingMessages xmi:type="bpmn:MessagingEdge" href="#_rz2AESzMEeKc5Icq22My-g"/>
     </vertices>
-    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_83ziQSzKEeKc5Icq22My-g" iD="_83ziQCzKEeKc5Icq22My-g"/>
-    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_CGU1kCzLEeKc5Icq22My-g" iD="_CGUOgCzLEeKc5Icq22My-g"/>
-    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_FaeG4SzLEeKc5Icq22My-g" iD="_FaeG4CzLEeKc5Icq22My-g"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_MER3ACzMEeKc5Icq22My-g" iD="_MEPaxizMEeKc5Icq22My-g" outgoingEdges="_8EMpISzMEeKc5Icq22My-g" incomingEdges="_METsMSzMEeKc5Icq22My-g" name="Evaluate delivery" lanes="_AXVHsSzMEeKc5Icq22My-g"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_NF9WcCzMEeKc5Icq22My-g" iD="_NF8vYCzMEeKc5Icq22My-g" incomingEdges="_c0hEkSzNEeKc5Icq22My-g" name="Send validation result" lanes="_AXVHsSzMEeKc5Icq22My-g">
+      <outgoingMessages xmi:type="bpmn:MessagingEdge" href="#_kCcq4SzNEeKc5Icq22My-g"/>
+    </vertices>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_gouLcSzMEeKc5Icq22My-g" iD="_gouLcCzMEeKc5Icq22My-g" outgoingEdges="_9DBB0SzMEeKc5Icq22My-g _9ayooSzMEeKc5Icq22My-g _guiDESzNEeKc5Icq22My-g" incomingEdges="_F6NE8SzNEeKc5Icq22My-g" lanes="_AXVHsSzMEeKc5Icq22My-g" activityType="GatewayParallel"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_uztDcSzMEeKc5Icq22My-g" iD="_uztDcCzMEeKc5Icq22My-g" outgoingEdges="_P52k8CzNEeKc5Icq22My-g" incomingEdges="_9DBB0SzMEeKc5Icq22My-g" name="Check for empty answer" lanes="_AXVHsSzMEeKc5Icq22My-g"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_xas64SzMEeKc5Icq22My-g" iD="_xas64CzMEeKc5Icq22My-g" outgoingEdges="_QPD_8SzNEeKc5Icq22My-g" incomingEdges="_9ayooSzMEeKc5Icq22My-g" name="Check for deadline" lanes="_AXVHsSzMEeKc5Icq22My-g"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_B0ga4SzNEeKc5Icq22My-g" iD="_B0ga4CzNEeKc5Icq22My-g" outgoingEdges="_F6NE8SzNEeKc5Icq22My-g" incomingEdges="_8EMpISzMEeKc5Icq22My-g" name="Check delivery validity" lanes="_AXVHsSzMEeKc5Icq22My-g"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_OzeLsCzNEeKc5Icq22My-g" iD="_OzdkoCzNEeKc5Icq22My-g" outgoingEdges="_cg16oSzNEeKc5Icq22My-g" incomingEdges="_P52k8CzNEeKc5Icq22My-g _QPD_8SzNEeKc5Icq22My-g _hHTIYSzNEeKc5Icq22My-g" lanes="_AXVHsSzMEeKc5Icq22My-g" activityType="GatewayParallel"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_WdJS0SzNEeKc5Icq22My-g" iD="_WdJS0CzNEeKc5Icq22My-g" outgoingEdges="_c0hEkSzNEeKc5Icq22My-g" incomingEdges="_cg16oSzNEeKc5Icq22My-g" name="Deicide on the validation result" lanes="_AXVHsSzMEeKc5Icq22My-g"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_ePxhoCzNEeKc5Icq22My-g" iD="_ePw6kCzNEeKc5Icq22My-g" outgoingEdges="_hHTIYSzNEeKc5Icq22My-g" incomingEdges="_guiDESzNEeKc5Icq22My-g" name="Perform other checks" lanes="_AXVHsSzMEeKc5Icq22My-g"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_EwSsACzMEeKc5Icq22My-g" iD="_EwRd4SzMEeKc5Icq22My-g"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_MESeESzMEeKc5Icq22My-g" iD="_MESeECzMEeKc5Icq22My-g"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_METsMSzMEeKc5Icq22My-g" iD="_METsMCzMEeKc5Icq22My-g"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_8EMpISzMEeKc5Icq22My-g" iD="_8EMpICzMEeKc5Icq22My-g"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_9DBB0SzMEeKc5Icq22My-g" iD="_9DBB0CzMEeKc5Icq22My-g"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_9ayooSzMEeKc5Icq22My-g" iD="_9ayooCzMEeKc5Icq22My-g"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_F6NE8SzNEeKc5Icq22My-g" iD="_F6NE8CzNEeKc5Icq22My-g"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_P52k8CzNEeKc5Icq22My-g" iD="_P5194CzNEeKc5Icq22My-g"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_QPD_8SzNEeKc5Icq22My-g" iD="_QPD_8CzNEeKc5Icq22My-g"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_cg16oSzNEeKc5Icq22My-g" iD="_cg16oCzNEeKc5Icq22My-g"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_c0hEkSzNEeKc5Icq22My-g" iD="_c0hEkCzNEeKc5Icq22My-g"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_guiDESzNEeKc5Icq22My-g" iD="_guiDECzNEeKc5Icq22My-g"/>
+    <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_hHTIYSzNEeKc5Icq22My-g" iD="_hHTIYCzNEeKc5Icq22My-g"/>
+    <lanes xmi:type="bpmn:Lane" xmi:id="__7F3oSzLEeKc5Icq22My-g" iD="__7F3oCzLEeKc5Icq22My-g" name="Course staff" activities="_EwRd4CzMEeKc5Icq22My-g _EwQPwCzMEeKc5Icq22My-g"/>
+    <lanes xmi:type="bpmn:Lane" xmi:id="_AXVHsSzMEeKc5Icq22My-g" iD="_AXVHsCzMEeKc5Icq22My-g" name="System" activities="_MER3ACzMEeKc5Icq22My-g _MERP8CzMEeKc5Icq22My-g _MERP8SzMEeKc5Icq22My-g _NF9WcCzMEeKc5Icq22My-g _gouLcSzMEeKc5Icq22My-g _uztDcSzMEeKc5Icq22My-g _xas64SzMEeKc5Icq22My-g _B0ga4SzNEeKc5Icq22My-g _OzeLsCzNEeKc5Icq22My-g _WdJS0SzNEeKc5Icq22My-g _ePxhoCzNEeKc5Icq22My-g"/>
   </pools>
-  <messages xmi:type="bpmn:MessagingEdge" xmi:id="_Nnqr8RzfEeKQGbqqCnj-gg" iD="_Nnqr8BzfEeKQGbqqCnj-gg" source="_5rpCYRzeEeKQGbqqCnj-gg" target="_KJCB4hzfEeKQGbqqCnj-gg"/>
-  <messages xmi:type="bpmn:MessagingEdge" xmi:id="_OtCl0SzIEeKc5Icq22My-g" iD="_OtCl0CzIEeKc5Icq22My-g" source="_9I8c8SzHEeKc5Icq22My-g" target="_L503VCzIEeKc5Icq22My-g"/>
-  <messages xmi:type="bpmn:MessagingEdge" xmi:id="_mDjuYSzKEeKc5Icq22My-g" iD="_mDjuYCzKEeKc5Icq22My-g" source="_kfVikSzKEeKc5Icq22My-g" target="_dRG7cBzeEeKQGbqqCnj-gg"/>
+  <messages xmi:type="bpmn:MessagingEdge" xmi:id="_mPMrwSzMEeKc5Icq22My-g" iD="_mPMrwCzMEeKc5Icq22My-g" source="_EwRd4CzMEeKc5Icq22My-g" target="_dRG7cBzeEeKQGbqqCnj-gg"/>
+  <messages xmi:type="bpmn:MessagingEdge" xmi:id="_rz2AESzMEeKc5Icq22My-g" iD="_rz2AECzMEeKc5Icq22My-g" source="_5rpCYRzeEeKQGbqqCnj-gg" target="_MERP8SzMEeKc5Icq22My-g"/>
+  <messages xmi:type="bpmn:MessagingEdge" xmi:id="_kCcq4SzNEeKc5Icq22My-g" iD="_kCcq4CzNEeKc5Icq22My-g" source="_NF9WcCzMEeKc5Icq22My-g" target="_L503VCzIEeKc5Icq22My-g"/>
 </bpmn:BpmnDiagram>
