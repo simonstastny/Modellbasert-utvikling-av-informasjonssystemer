@@ -17,7 +17,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="submits" upperBound="-1"
         eType="#//Exercise"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="delivers" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="submits" upperBound="-1"
         eType="#//Delivery"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attends" upperBound="-1"
         eType="#//Course"/>
@@ -25,8 +25,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="Exercise">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="submittedBy" eType="#//Student"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//Evaluation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="has" upperBound="-1" eType="#//Delivery"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//Response.1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="hasSubmitted" upperBound="-1"
+        eType="#//Delivery"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignedTo" upperBound="-1"
+        eType="#//Student"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deadline_date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Response"/>
   <eClassifiers xsi:type="ecore:EClass" name="Course">
@@ -34,17 +38,17 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="contains" upperBound="-1"
         eType="#//Exercise" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Evaluation">
+  <eClassifiers xsi:type="ecore:EClass" name="Response">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ok" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="note" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Delivery">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="group_number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="answer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="submission_date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="isEvaluated" eType="#//Evaluation"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isEvaluated" eType="#//Response.1"
         containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
