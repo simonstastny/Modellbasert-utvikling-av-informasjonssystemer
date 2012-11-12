@@ -12,11 +12,12 @@
       <incomingMessages xmi:type="bpmn:MessagingEdge" href="#_kCcq4SzNEeKc5Icq22My-g"/>
     </vertices>
     <vertices xmi:type="bpmn:Activity" xmi:id="_Fsm1MSzKEeKc5Icq22My-g" iD="_Fsm1MCzKEeKc5Icq22My-g" outgoingEdges="_uNqCASzKEeKc5Icq22My-g" incomingEdges="_tyeh4CzKEeKc5Icq22My-g" name="Receive exercise"/>
+    <vertices xmi:type="bpmn:Activity" xmi:id="_u4r_MSzOEeKc5Icq22My-g" iD="_u4r_MCzOEeKc5Icq22My-g" activityType="EventIntermediateTimer"/>
     <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_tyeh4CzKEeKc5Icq22My-g" iD="_tyd60CzKEeKc5Icq22My-g"/>
     <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_uNqCASzKEeKc5Icq22My-g" iD="_uNqCACzKEeKc5Icq22My-g"/>
     <sequenceEdges xmi:type="bpmn:SequenceEdge" xmi:id="_uklUQSzKEeKc5Icq22My-g" iD="_uklUQCzKEeKc5Icq22My-g"/>
   </pools>
-  <pools xmi:type="bpmn:Pool" xmi:id="_-YjG0CzLEeKc5Icq22My-g" iD="_-YifwCzLEeKc5Icq22My-g" name="2">
+  <pools xmi:type="bpmn:Pool" xmi:id="_-YjG0CzLEeKc5Icq22My-g" iD="_-YifwCzLEeKc5Icq22My-g" name="University">
     <vertices xmi:type="bpmn:Activity" xmi:id="_EwQPwCzMEeKc5Icq22My-g" iD="_EwNzgCzMEeKc5Icq22My-g" outgoingEdges="_EwSsACzMEeKc5Icq22My-g" name="Create exercise" lanes="__7F3oSzLEeKc5Icq22My-g"/>
     <vertices xmi:type="bpmn:Activity" xmi:id="_EwRd4CzMEeKc5Icq22My-g" iD="_EwPBoCzMEeKc5Icq22My-g" incomingEdges="_EwSsACzMEeKc5Icq22My-g" name="Assign exercise" lanes="__7F3oSzLEeKc5Icq22My-g">
       <outgoingMessages xmi:type="bpmn:MessagingEdge" href="#_mPMrwSzMEeKc5Icq22My-g"/>
