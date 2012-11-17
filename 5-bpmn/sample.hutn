@@ -20,7 +20,7 @@ model {
 		
 		containsStudent: Student "Noelia" {
 			ID: 2
-			attends: "tdt4250"
+			attends: Course "tdt4250"
 			name: "Noelia"
 			submits: Delivery "answer1"
 		}
@@ -30,15 +30,7 @@ model {
 			answer: "this is the answer"
 			group_number: 2
 			submission_date: "2012-11-17"
-			evaluates: Response "response1" 	
 		}	
-	
-	}
-	
-	Response "reponse1" {
-		ID: 5
-		comment: "is ok"
-		ok: true
 	}
 	
 }

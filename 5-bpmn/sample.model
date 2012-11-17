@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:root xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:model="http://model/1.0">
+  <containsStudent ID="2" attends="#//@containsCourse.0" submits="#//@containsDelivery.0"
+      name="Noelia"/>
+  <containsCourse ID="1" name="MDD">
+    <contains ID="1" hasSubmitted="#//@containsDelivery.0" assignedTo="#//@containsStudent.0"
+        deadline_date="2012-11-20T00:00:00.000+0100"/>
+  </containsCourse>
+  <containsDelivery ID="3" group_number="2" answer="this is the answer" submission_date="2012-11-17T00:00:00.000+0100"/>
+</model:root>
