@@ -1,0 +1,44 @@
+@Spec {
+	metamodel "1.0" {
+		nsUri: "http://model/1.0"
+	}
+}
+
+model {
+
+	root {
+		containsCourse: Course "tdt4250" {
+			ID: 1
+			name: "MDD"
+			contains: Exercise "BPMN" {
+				ID: 1
+				deadline_date: "2012-11-20"
+				assignedTo: Student "Noelia"
+				hasSubmitted: Delivery "answer1" 
+				} 
+		}
+		
+		containsStudent: Student "Noelia" {
+			ID: 2
+			attends: "tdt4250"
+			name: "Noelia"
+			submits: Delivery "answer1"
+		}
+		
+		containsDelivery: Delivery "answer1" {
+			ID: 3
+			answer: "this is the answer"
+			group_number: 2
+			submission_date: "2012-11-17"
+			evaluates: Response "response1" 	
+		}	
+	
+	}
+	
+	Response "reponse1" {
+		ID: 5
+		comment: "is ok"
+		ok: true
+	}
+	
+}
